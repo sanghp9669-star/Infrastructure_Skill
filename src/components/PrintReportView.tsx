@@ -324,24 +324,20 @@ export const PrintReportView: React.FC<PrintReportViewProps> = ({
                     );
                   })}
 
-                  {/* Roles */}
+                  {/* Roles - Use real data, leave blank if empty */}
                   {effectiveConfig.visibleColumns.showOwner && (
                     <td className="p-1 border-r border-slate-300 text-center font-medium">
-                      {s.owner || '-'}
+                      {s.owner || ''}
                     </td>
                   )}
                   {effectiveConfig.visibleColumns.showBackup && (
                     <td className="p-1 border-r border-slate-300 text-center font-semibold">
-                      {s.backup ? (
-                        s.backup
-                      ) : (
-                        <span className="text-amber-800 font-bold">Thiếu</span>
-                      )}
+                      {s.backup || ''}
                     </td>
                   )}
                   {effectiveConfig.visibleColumns.showSme && (
-                    <td className="p-1 border-r border-slate-300 text-center">
-                      {s.sme || '-'}
+                    <td className="p-1 border-r border-slate-300 text-center font-medium">
+                      {s.sme || ''}
                     </td>
                   )}
 

@@ -425,52 +425,6 @@ export const SkillMatrixTable: React.FC<SkillMatrixTableProps> = ({
             />
             <span>Gom Nhóm Kỹ Năng ({domains.length})</span>
           </label>
-
-          {onOpenPrintModal && (
-            <button
-              type="button"
-              onClick={onOpenPrintModal}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition-all shadow-2xs"
-              title="Tùy chỉnh chọn cột & phân khúc domain trước khi xuất PDF A4"
-            >
-              <Printer className="w-3.5 h-3.5 text-slate-500" />
-              <span className="hidden sm:inline">Xuất PDF</span>
-            </button>
-          )}
-
-          {onOpenAuditLog && (
-            <button
-              type="button"
-              onClick={onOpenAuditLog}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200 transition-all shadow-2xs relative"
-              title="Xem Lịch sử thay đổi đánh giá rating gần nhất của các kỹ sư"
-            >
-              <History className="w-3.5 h-3.5 text-indigo-600" />
-              <span className="hidden sm:inline">Lịch Sử</span>
-              {auditLogCount !== undefined && auditLogCount > 0 && (
-                <span className="inline-flex items-center justify-center px-1.5 py-0.2 text-[10px] font-bold text-white bg-indigo-600 rounded-full">
-                  {auditLogCount}
-                </span>
-              )}
-            </button>
-          )}
-
-          {onOpenSkillRequests && (
-            <button
-              type="button"
-              onClick={onOpenSkillRequests}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-amber-50 hover:text-amber-900 hover:border-amber-300 transition-all shadow-2xs relative"
-              title="Đề xuất kỹ năng mới (Pending state) hoặc yêu cầu Lab Workshop đào tạo"
-            >
-              <GraduationCap className="w-3.5 h-3.5 text-indigo-600" />
-              <span>Đề Xuất & Đào Tạo</span>
-              {pendingRequestsCount !== undefined && pendingRequestsCount > 0 && (
-                <span className="inline-flex items-center justify-center px-1.5 py-0.2 text-[10px] font-bold text-white bg-amber-500 rounded-full animate-pulse">
-                  {pendingRequestsCount}
-                </span>
-              )}
-            </button>
-          )}
         </div>
       </div>
 
@@ -1132,57 +1086,57 @@ const SkillTableRow: React.FC<SkillTableRowProps> = ({
         );
       })}
 
-      {/* Owner Dropdown */}
+      {/* Owner Dropdown - Real data from SharePoint, left completely blank if empty */}
       <td className="py-1 px-1.5 border-r border-slate-200">
         <select
           value={item.owner || ''}
           onChange={e => onUpdateRole(item.id, 'owner', e.target.value)}
           className={`w-full py-1 px-1.5 text-[11px] rounded font-medium border bg-white focus:outline-hidden transition-colors ${
-            item.owner ? 'border-slate-300 text-slate-900 font-semibold bg-white' : 'border-slate-200 text-slate-400 bg-slate-50/40 hover:bg-white'
+            item.owner ? 'border-slate-300 text-slate-900 font-semibold bg-white' : 'border-transparent text-transparent bg-transparent hover:border-slate-200 hover:text-slate-400'
           }`}
           title={item.owner ? `Người phụ trách: ${item.owner}` : 'Chưa phân công phụ trách (Trống)'}
         >
-          <option value="">-</option>
+          <option value=""> </option>
           {members.map(m => (
-            <option key={m.name} value={m.name}>
+            <option key={m.name} value={m.name} className="text-slate-900 font-normal">
               {m.name}
             </option>
           ))}
         </select>
       </td>
 
-      {/* Backup Dropdown */}
+      {/* Backup Dropdown - Real data from SharePoint, left completely blank if empty */}
       <td className="py-1 px-1.5 border-r border-slate-200">
         <select
           value={item.backup || ''}
           onChange={e => onUpdateRole(item.id, 'backup', e.target.value)}
           className={`w-full py-1 px-1.5 text-[11px] rounded font-medium border bg-white focus:outline-hidden transition-colors ${
-            item.backup ? 'border-slate-300 text-slate-900 font-semibold bg-white' : 'border-slate-200 text-slate-400 bg-slate-50/40 hover:bg-white'
+            item.backup ? 'border-slate-300 text-slate-900 font-semibold bg-white' : 'border-transparent text-transparent bg-transparent hover:border-slate-200 hover:text-slate-400'
           }`}
           title={item.backup ? `Người dự phòng: ${item.backup}` : 'Chưa phân công dự phòng (Trống)'}
         >
-          <option value="">-</option>
+          <option value=""> </option>
           {members.map(m => (
-            <option key={m.name} value={m.name}>
+            <option key={m.name} value={m.name} className="text-slate-900 font-normal">
               {m.name}
             </option>
           ))}
         </select>
       </td>
 
-      {/* SME Dropdown */}
+      {/* SME Dropdown - Real data from SharePoint, left completely blank if empty */}
       <td className="py-1 px-1.5 border-r border-slate-200">
         <select
           value={item.sme || ''}
           onChange={e => onUpdateRole(item.id, 'sme', e.target.value)}
           className={`w-full py-1 px-1.5 text-[11px] rounded font-medium border bg-white focus:outline-hidden transition-colors ${
-            item.sme ? 'border-indigo-300 text-indigo-950 font-bold bg-indigo-50/40' : 'border-slate-200 text-slate-400 bg-slate-50/40 hover:bg-white'
+            item.sme ? 'border-indigo-300 text-indigo-950 font-bold bg-indigo-50/40' : 'border-transparent text-transparent bg-transparent hover:border-slate-200 hover:text-slate-400'
           }`}
           title={item.sme ? `Chuyên gia SME: ${item.sme}` : 'Chưa phân công chuyên gia (Trống)'}
         >
-          <option value="">-</option>
+          <option value=""> </option>
           {members.map(m => (
-            <option key={m.name} value={m.name}>
+            <option key={m.name} value={m.name} className="text-slate-900 font-normal">
               {m.name}
             </option>
           ))}

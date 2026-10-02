@@ -1730,16 +1730,16 @@ export default function App() {
 
       {/* 2. Main Content Container */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        {/* KPI Stats Overview */}
-        <StatsOverview
-          skills={skills}
-          members={members}
-          onFilterClick={handleKPIFilterClick}
-        />
-
         {/* Tab 1: Skill Matrix View */}
         {activeTab === 'matrix' && (
           <div className="space-y-4">
+            {/* KPI Stats Overview 2x2 Grid */}
+            <StatsOverview
+              skills={skills}
+              members={members}
+              onFilterClick={handleKPIFilterClick}
+            />
+
             <FilterBar
               filter={filter}
               setFilter={setFilter}
