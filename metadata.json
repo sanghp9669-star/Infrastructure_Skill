@@ -1,0 +1,6 @@
+{
+  "name": "Viendat Team Skill Matrix & Infrastructure Dashboard",
+  "description": "Web app dashboard trực quan hóa ma trận kỹ năng 14 domain hạ tầng của đội ngũ Teams, lọc theo kỹ năng, nhân viên, dự án, phân tích rủi ro độ phủ và xuất báo cáo PDF, CSV theo thời gian thực.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,472 @@
+[
+  {
+    "id": 1,
+    "domain": "Virtualization",
+    "name": "VMware ESXi"
+  },
+  {
+    "id": 2,
+    "domain": "Virtualization",
+    "name": "VMware vCenter"
+  },
+  {
+    "id": 3,
+    "domain": "Virtualization",
+    "name": "VMware vSAN"
+  },
+  {
+    "id": 4,
+    "domain": "Virtualization",
+    "name": "VMware NSX"
+  },
+  {
+    "id": 5,
+    "domain": "Virtualization",
+    "name": "VMware Horizon"
+  },
+  {
+    "id": 6,
+    "domain": "Virtualization",
+    "name": "Proxmox VE"
+  },
+  {
+    "id": 7,
+    "domain": "Virtualization",
+    "name": "Hyper-V"
+  },
+  {
+    "id": 8,
+    "domain": "Virtualization",
+    "name": "VergeIO"
+  },
+  {
+    "id": 9,
+    "domain": "Virtualization",
+    "name": "Nutanix"
+  },
+  {
+    "id": 10,
+    "domain": "Virtualization",
+    "name": "CloudStack"
+  },
+  {
+    "id": 11,
+    "domain": "Container Platform",
+    "name": "Docker"
+  },
+  {
+    "id": 12,
+    "domain": "Container Platform",
+    "name": "Kubernetes"
+  },
+  {
+    "id": 13,
+    "domain": "Container Platform",
+    "name": "OpenShift"
+  },
+  {
+    "id": 14,
+    "domain": "Container Platform",
+    "name": "Rancher"
+  },
+  {
+    "id": 15,
+    "domain": "Windows Server",
+    "name": "Windows Server"
+  },
+  {
+    "id": 16,
+    "domain": "Windows Server",
+    "name": "Active Directory Domain Services (AD DS)"
+  },
+  {
+    "id": 17,
+    "domain": "Windows Server",
+    "name": "Group Policy (GPO)"
+  },
+  {
+    "id": 18,
+    "domain": "Windows Server",
+    "name": "Active Directory Certificate Services (AD CS)"
+  },
+  {
+    "id": 19,
+    "domain": "Windows Server",
+    "name": "DNS và DHCP"
+  },
+  {
+    "id": 20,
+    "domain": "Windows Server",
+    "name": "IIS"
+  },
+  {
+    "id": 21,
+    "domain": "Windows Server",
+    "name": "ADFS"
+  },
+  {
+    "id": 22,
+    "domain": "Linux Server",
+    "name": "Ubuntu"
+  },
+  {
+    "id": 23,
+    "domain": "Linux Server",
+    "name": "RHEL"
+  },
+  {
+    "id": 24,
+    "domain": "Linux Server",
+    "name": "Rocky Linux"
+  },
+  {
+    "id": 25,
+    "domain": "Linux Server",
+    "name": "Nginx"
+  },
+  {
+    "id": 26,
+    "domain": "Linux Server",
+    "name": "Apache"
+  },
+  {
+    "id": 27,
+    "domain": "Linux Server",
+    "name": "Tomcat"
+  },
+  {
+    "id": 28,
+    "domain": "Storage & Backup",
+    "name": "SAN"
+  },
+  {
+    "id": 29,
+    "domain": "Storage & Backup",
+    "name": "NAS"
+  },
+  {
+    "id": 30,
+    "domain": "Storage & Backup",
+    "name": "Nimble Storage"
+  },
+  {
+    "id": 31,
+    "domain": "Storage & Backup",
+    "name": "NetApp"
+  },
+  {
+    "id": 32,
+    "domain": "Storage & Backup",
+    "name": "Veeam"
+  },
+  {
+    "id": 33,
+    "domain": "Storage & Backup",
+    "name": "Commvault"
+  },
+  {
+    "id": 34,
+    "domain": "Storage & Backup",
+    "name": "DR Solution"
+  },
+  {
+    "id": 35,
+    "domain": "Network",
+    "name": "Switching"
+  },
+  {
+    "id": 36,
+    "domain": "Network",
+    "name": "Routing"
+  },
+  {
+    "id": 37,
+    "domain": "Network",
+    "name": "OSPF"
+  },
+  {
+    "id": 38,
+    "domain": "Network",
+    "name": "BGP"
+  },
+  {
+    "id": 39,
+    "domain": "Network",
+    "name": "VLAN"
+  },
+  {
+    "id": 40,
+    "domain": "Network",
+    "name": "QoS"
+  },
+  {
+    "id": 41,
+    "domain": "Network",
+    "name": "Cisco ACI"
+  },
+  {
+    "id": 42,
+    "domain": "Wireless",
+    "name": "Aruba Wireless"
+  },
+  {
+    "id": 43,
+    "domain": "Wireless",
+    "name": "Cisco Wireless"
+  },
+  {
+    "id": 44,
+    "domain": "Wireless",
+    "name": "Allied Wireless"
+  },
+  {
+    "id": 45,
+    "domain": "Wireless",
+    "name": "Ruckus"
+  },
+  {
+    "id": 46,
+    "domain": "Wireless",
+    "name": "Ekahau Survey"
+  },
+  {
+    "id": 47,
+    "domain": "Wireless",
+    "name": "Wireless Design"
+  },
+  {
+    "id": 48,
+    "domain": "Security",
+    "name": "Palo Alto"
+  },
+  {
+    "id": 49,
+    "domain": "Security",
+    "name": "Check Point"
+  },
+  {
+    "id": 50,
+    "domain": "Security",
+    "name": "Fortinet"
+  },
+  {
+    "id": 51,
+    "domain": "Security",
+    "name": "Sophos"
+  },
+  {
+    "id": 52,
+    "domain": "Security",
+    "name": "Cisco ASA"
+  },
+  {
+    "id": 53,
+    "domain": "Security",
+    "name": "WAF"
+  },
+  {
+    "id": 54,
+    "domain": "Security",
+    "name": "Trend Micro"
+  },
+  {
+    "id": 55,
+    "domain": "Security",
+    "name": "Defender"
+  },
+  {
+    "id": 56,
+    "domain": "Security",
+    "name": "MFA"
+  },
+  {
+    "id": 57,
+    "domain": "Security",
+    "name": "LDAP"
+  },
+  {
+    "id": 58,
+    "domain": "Security",
+    "name": "RADIUS"
+  },
+  {
+    "id": 59,
+    "domain": "Syslog & Monitoring",
+    "name": "Zabbix"
+  },
+  {
+    "id": 60,
+    "domain": "Syslog & Monitoring",
+    "name": "Splunk"
+  },
+  {
+    "id": 61,
+    "domain": "Syslog & Monitoring",
+    "name": "PRTG"
+  },
+  {
+    "id": 62,
+    "domain": "Syslog & Monitoring",
+    "name": "Graylog"
+  },
+  {
+    "id": 63,
+    "domain": "Syslog & Monitoring",
+    "name": "OpenObserve"
+  },
+  {
+    "id": 64,
+    "domain": "Syslog & Monitoring",
+    "name": "SolarWinds"
+  },
+  {
+    "id": 65,
+    "domain": "Syslog & Monitoring",
+    "name": "ELK"
+  },
+  {
+    "id": 66,
+    "domain": "Syslog & Monitoring",
+    "name": "Grafana"
+  },
+  {
+    "id": 67,
+    "domain": "Database",
+    "name": "SQL Server"
+  },
+  {
+    "id": 68,
+    "domain": "Database",
+    "name": "PostgreSQL"
+  },
+  {
+    "id": 69,
+    "domain": "Database",
+    "name": "MySQL"
+  },
+  {
+    "id": 70,
+    "domain": "Database",
+    "name": "Oracle DB"
+  },
+  {
+    "id": 71,
+    "domain": "Microsoft 365",
+    "name": "Exchange Online"
+  },
+  {
+    "id": 72,
+    "domain": "Microsoft 365",
+    "name": "Teams"
+  },
+  {
+    "id": 73,
+    "domain": "Microsoft 365",
+    "name": "SharePoint"
+  },
+  {
+    "id": 74,
+    "domain": "Microsoft 365",
+    "name": "OneDrive"
+  },
+  {
+    "id": 75,
+    "domain": "Microsoft 365",
+    "name": "Intune"
+  },
+  {
+    "id": 76,
+    "domain": "UC & Contact Center",
+    "name": "Cisco CUCM"
+  },
+  {
+    "id": 77,
+    "domain": "UC & Contact Center",
+    "name": "Cisco CMS"
+  },
+  {
+    "id": 78,
+    "domain": "UC & Contact Center",
+    "name": "Avaya Aura"
+  },
+  {
+    "id": 79,
+    "domain": "UC & Contact Center",
+    "name": "Avaya IPO"
+  },
+  {
+    "id": 80,
+    "domain": "UC & Contact Center",
+    "name": "Avaya CMS"
+  },
+  {
+    "id": 81,
+    "domain": "UC & Contact Center",
+    "name": "NICE"
+  },
+  {
+    "id": 82,
+    "domain": "Automation & DevOps",
+    "name": "PowerShell"
+  },
+  {
+    "id": 83,
+    "domain": "Automation & DevOps",
+    "name": "Python"
+  },
+  {
+    "id": 84,
+    "domain": "Automation & DevOps",
+    "name": "Bash"
+  },
+  {
+    "id": 85,
+    "domain": "Automation & DevOps",
+    "name": "Ansible"
+  },
+  {
+    "id": 86,
+    "domain": "Automation & DevOps",
+    "name": "Terraform"
+  },
+  {
+    "id": 87,
+    "domain": "Automation & DevOps",
+    "name": "Azure DevOps"
+  },
+  {
+    "id": 88,
+    "domain": "Automation & DevOps",
+    "name": "GitLab"
+  },
+  {
+    "id": 89,
+    "domain": "AI Infrastructure",
+    "name": "Microsoft Copilot"
+  },
+  {
+    "id": 90,
+    "domain": "AI Infrastructure",
+    "name": "Azure AI"
+  },
+  {
+    "id": 91,
+    "domain": "AI Infrastructure",
+    "name": "OpenAI API"
+  },
+  {
+    "id": 92,
+    "domain": "AI Infrastructure",
+    "name": "GPU Server"
+  },
+  {
+    "id": 93,
+    "domain": "AI Infrastructure",
+    "name": "Vector Database"
+  },
+  {
+    "id": 94,
+    "domain": "AI Infrastructure",
+    "name": "RAG Architecture"
+  }
+]

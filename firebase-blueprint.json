@@ -1,0 +1,67 @@
+{
+  "entities": {
+    "SkillItem": {
+      "title": "SkillItem",
+      "description": "Represents a single technical skill item in the matrix",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number", "description": "Numeric ID of the skill" },
+        "domain": { "type": "string", "maxLength": 200, "description": "Domain or category of the skill" },
+        "skill": { "type": "string", "maxLength": 200, "description": "Name of the skill" },
+        "owner": { "type": "string", "maxLength": 100, "description": "Primary owner" },
+        "backup": { "type": "string", "maxLength": 100, "description": "Backup engineer" },
+        "sme": { "type": "string", "maxLength": 100, "description": "Subject matter expert" },
+        "evidence": { "type": "string", "maxLength": 1000, "description": "Certification or evidence link" },
+        "ratings": { "type": "object", "description": "Map of member name to competency level L0-L2" }
+      },
+      "required": ["id", "domain", "skill"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile data for authenticated engineers and managers",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128, "description": "Firebase Auth UID" },
+        "displayName": { "type": "string", "maxLength": 150, "description": "User display name" },
+        "email": { "type": "string", "maxLength": 150, "description": "User email address" },
+        "photoURL": { "type": "string", "maxLength": 500, "description": "User avatar photo URL" },
+        "role": { "type": "string", "maxLength": 50, "description": "User role: engineer, lead, or manager" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp of last profile update" }
+      },
+      "required": ["uid", "displayName", "email"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "Audit record of rating or assignment changes",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128, "description": "Unique log ID" },
+        "timestamp": { "type": "string", "description": "ISO timestamp" },
+        "memberName": { "type": "string", "maxLength": 100, "description": "Target member name" },
+        "skillId": { "type": "number", "description": "Skill ID" },
+        "skillName": { "type": "string", "maxLength": 200, "description": "Skill name" },
+        "domain": { "type": "string", "maxLength": 200, "description": "Domain name" },
+        "oldValue": { "type": "string", "maxLength": 100, "description": "Previous level or role" },
+        "newValue": { "type": "string", "maxLength": 100, "description": "New level or role" },
+        "changeType": { "type": "string", "maxLength": 50, "description": "Type of change" },
+        "performedBy": { "type": "string", "maxLength": 100, "description": "User who performed change" },
+        "notes": { "type": "string", "maxLength": 500, "description": "Optional change notes" }
+      },
+      "required": ["id", "timestamp", "performedBy"]
+    }
+  },
+  "firestore": {
+    "/skills/{skillId}": {
+      "schema": { "$ref": "#/entities/SkillItem" },
+      "description": "Collection of all skills in the matrix"
+    },
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Authenticated user profile documents"
+    },
+    "/audit_logs/{logId}": {
+      "schema": { "$ref": "#/entities/AuditLog" },
+      "description": "Audit log records"
+    }
+  }
+}

@@ -1,0 +1,1694 @@
+[
+  {
+    "id": 1,
+    "domain": "Virtualization",
+    "skill": "VMware ESXi",
+    "ratings": {
+      "Toàn": "L5",
+      "Long": "L2",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Toàn",
+    "backup": "Sang",
+    "sme": "Toàn"
+  },
+  {
+    "id": 2,
+    "domain": "Virtualization",
+    "skill": "VMware vCenter",
+    "ratings": {
+      "Toàn": "L5",
+      "Long": "L2",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Toàn",
+    "backup": "Sang",
+    "sme": "Toàn"
+  },
+  {
+    "id": 3,
+    "domain": "Virtualization",
+    "skill": "VMware vSAN",
+    "ratings": {
+      "Toàn": "L5",
+      "Long": "L2",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Toàn",
+    "backup": "Sang",
+    "sme": "Toàn"
+  },
+  {
+    "id": 4,
+    "domain": "Virtualization",
+    "skill": "VMware NSX",
+    "ratings": {
+      "Toàn": "L5",
+      "Long": "L2",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Toàn",
+    "backup": "Sang",
+    "sme": "Toàn"
+  },
+  {
+    "id": 5,
+    "domain": "Virtualization",
+    "skill": "VMware Horizon",
+    "ratings": {
+      "Toàn": "L5",
+      "Long": "L2",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Toàn",
+    "backup": "Sang",
+    "sme": "Toàn"
+  },
+  {
+    "id": 6,
+    "domain": "Virtualization",
+    "skill": "Proxmox VE",
+    "ratings": {
+      "Toàn": "L4",
+      "Long": "L2",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Toàn",
+    "backup": "Sang",
+    "sme": "Toàn"
+  },
+  {
+    "id": 7,
+    "domain": "Virtualization",
+    "skill": "Hyper-V",
+    "ratings": {
+      "Toàn": "L4",
+      "Long": "L2",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Toàn",
+    "backup": "Sang",
+    "sme": "Toàn"
+  },
+  {
+    "id": 8,
+    "domain": "Virtualization",
+    "skill": "VergeIO",
+    "ratings": {
+      "Toàn": "L4",
+      "Long": "L2",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Toàn",
+    "backup": "Sang",
+    "sme": "Toàn"
+  },
+  {
+    "id": 9,
+    "domain": "Virtualization",
+    "skill": "Nutanix",
+    "ratings": {
+      "Toàn": "L4",
+      "Long": "L2",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Toàn",
+    "backup": "Sang",
+    "sme": "Toàn"
+  },
+  {
+    "id": 10,
+    "domain": "Virtualization",
+    "skill": "CloudStack",
+    "ratings": {
+      "Toàn": "L4",
+      "Long": "L2",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Toàn",
+    "backup": "Sang",
+    "sme": "Toàn"
+  },
+  {
+    "id": 11,
+    "domain": "Container Platform",
+    "skill": "Docker",
+    "ratings": {
+      "Toàn": "L2",
+      "Long": "L1",
+      "Tuấn": "L5",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L4",
+      "Khánh": "L1"
+    },
+    "owner": "Tuấn",
+    "backup": "Thông",
+    "sme": "Tuấn"
+  },
+  {
+    "id": 12,
+    "domain": "Container Platform",
+    "skill": "Kubernetes",
+    "ratings": {
+      "Toàn": "L2",
+      "Long": "L1",
+      "Tuấn": "L5",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L4",
+      "Khánh": "L1"
+    },
+    "owner": "Tuấn",
+    "backup": "Thông",
+    "sme": "Tuấn"
+  },
+  {
+    "id": 13,
+    "domain": "Container Platform",
+    "skill": "OpenShift",
+    "ratings": {
+      "Toàn": "L2",
+      "Long": "L1",
+      "Tuấn": "L4",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L4",
+      "Khánh": "L1"
+    },
+    "owner": "Tuấn",
+    "backup": "Thông",
+    "sme": "Tuấn"
+  },
+  {
+    "id": 14,
+    "domain": "Container Platform",
+    "skill": "Rancher",
+    "ratings": {
+      "Toàn": "L2",
+      "Long": "L1",
+      "Tuấn": "L4",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L4",
+      "Khánh": "L1"
+    },
+    "owner": "Tuấn",
+    "backup": "Thông",
+    "sme": "Tuấn"
+  },
+  {
+    "id": 15,
+    "domain": "Windows Server",
+    "skill": "Windows Server",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L4",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Thi",
+    "backup": "Sang",
+    "sme": "Thi"
+  },
+  {
+    "id": 16,
+    "domain": "Windows Server",
+    "skill": "Active Directory Domain Services (AD DS)",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L5",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Thi",
+    "backup": "Sang",
+    "sme": "Thi"
+  },
+  {
+    "id": 17,
+    "domain": "Windows Server",
+    "skill": "Group Policy (GPO)",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L4",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Thi",
+    "backup": "Sang",
+    "sme": "Thi"
+  },
+  {
+    "id": 18,
+    "domain": "Windows Server",
+    "skill": "Active Directory Certificate Services (AD CS)",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L5",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Thi",
+    "backup": "Sang",
+    "sme": "Thi"
+  },
+  {
+    "id": 19,
+    "domain": "Windows Server",
+    "skill": "DNS và DHCP",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L4",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Thi",
+    "backup": "Sang",
+    "sme": "Thi"
+  },
+  {
+    "id": 20,
+    "domain": "Windows Server",
+    "skill": "IIS",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L4",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Thi",
+    "backup": "Sang",
+    "sme": "Thi"
+  },
+  {
+    "id": 21,
+    "domain": "Windows Server",
+    "skill": "ADFS",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L4",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Thi",
+    "backup": "Sang",
+    "sme": "Thi"
+  },
+  {
+    "id": 22,
+    "domain": "Linux Server",
+    "skill": "Ubuntu",
+    "ratings": {
+      "Toàn": "L2",
+      "Long": "L1",
+      "Tuấn": "L5",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Tuấn",
+    "backup": "Toàn",
+    "sme": "Tuấn"
+  },
+  {
+    "id": 23,
+    "domain": "Linux Server",
+    "skill": "RHEL",
+    "ratings": {
+      "Toàn": "L2",
+      "Long": "L1",
+      "Tuấn": "L5",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Tuấn",
+    "backup": "Toàn",
+    "sme": "Tuấn"
+  },
+  {
+    "id": 24,
+    "domain": "Linux Server",
+    "skill": "Rocky Linux",
+    "ratings": {
+      "Toàn": "L2",
+      "Long": "L1",
+      "Tuấn": "L4",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Tuấn",
+    "backup": "Toàn",
+    "sme": "Tuấn"
+  },
+  {
+    "id": 25,
+    "domain": "Linux Server",
+    "skill": "Nginx",
+    "ratings": {
+      "Toàn": "L2",
+      "Long": "L1",
+      "Tuấn": "L4",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Tuấn",
+    "backup": "Toàn",
+    "sme": "Tuấn"
+  },
+  {
+    "id": 26,
+    "domain": "Linux Server",
+    "skill": "Apache",
+    "ratings": {
+      "Toàn": "L2",
+      "Long": "L1",
+      "Tuấn": "L4",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Tuấn",
+    "backup": "Toàn",
+    "sme": "Tuấn"
+  },
+  {
+    "id": 27,
+    "domain": "Linux Server",
+    "skill": "Tomcat",
+    "ratings": {
+      "Toàn": "L2",
+      "Long": "L1",
+      "Tuấn": "L4",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Tuấn",
+    "backup": "Toàn",
+    "sme": "Tuấn"
+  },
+  {
+    "id": 28,
+    "domain": "Storage & Backup",
+    "skill": "SAN",
+    "ratings": {
+      "Toàn": "L4",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L3",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Toàn",
+    "backup": "Sang",
+    "sme": "Toàn"
+  },
+  {
+    "id": 29,
+    "domain": "Storage & Backup",
+    "skill": "NAS",
+    "ratings": {
+      "Toàn": "L3",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L4",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Bảo",
+    "backup": "Toàn",
+    "sme": "Bảo"
+  },
+  {
+    "id": 30,
+    "domain": "Storage & Backup",
+    "skill": "Nimble Storage",
+    "ratings": {
+      "Toàn": "L4",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L3",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Toàn",
+    "backup": "Sang",
+    "sme": "Toàn"
+  },
+  {
+    "id": 31,
+    "domain": "Storage & Backup",
+    "skill": "NetApp",
+    "ratings": {
+      "Toàn": "L3",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L4",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Bảo",
+    "backup": "Toàn",
+    "sme": "Bảo"
+  },
+  {
+    "id": 32,
+    "domain": "Storage & Backup",
+    "skill": "Veeam",
+    "ratings": {
+      "Toàn": "L4",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L3",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Toàn",
+    "backup": "Sang",
+    "sme": "Toàn"
+  },
+  {
+    "id": 33,
+    "domain": "Storage & Backup",
+    "skill": "Commvault",
+    "ratings": {
+      "Toàn": "L3",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L4",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Bảo",
+    "backup": "Toàn",
+    "sme": "Bảo"
+  },
+  {
+    "id": 34,
+    "domain": "Storage & Backup",
+    "skill": "DR Solution",
+    "ratings": {
+      "Toàn": "L3",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L4",
+      "Bảo": "L3",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Sang",
+    "backup": "Toàn",
+    "sme": "Sang"
+  },
+  {
+    "id": 35,
+    "domain": "Network",
+    "skill": "Switching",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L5",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L3"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 36,
+    "domain": "Network",
+    "skill": "Routing",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L5",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L3"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 37,
+    "domain": "Network",
+    "skill": "OSPF",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L4",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L3"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 38,
+    "domain": "Network",
+    "skill": "BGP",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L5",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L3"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 39,
+    "domain": "Network",
+    "skill": "VLAN",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L4",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L3"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 40,
+    "domain": "Network",
+    "skill": "QoS",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L4",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L3"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 41,
+    "domain": "Network",
+    "skill": "Cisco ACI",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L5",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L3"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 42,
+    "domain": "Wireless",
+    "skill": "Aruba Wireless",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L4",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L3"
+    },
+    "owner": "Long",
+    "backup": "Khánh",
+    "sme": "Long"
+  },
+  {
+    "id": 43,
+    "domain": "Wireless",
+    "skill": "Cisco Wireless",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L5",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L3"
+    },
+    "owner": "Long",
+    "backup": "Khánh",
+    "sme": "Long"
+  },
+  {
+    "id": 44,
+    "domain": "Wireless",
+    "skill": "Allied Wireless",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L4",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L3"
+    },
+    "owner": "Long",
+    "backup": "Khánh",
+    "sme": "Long"
+  },
+  {
+    "id": 45,
+    "domain": "Wireless",
+    "skill": "Ruckus",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L4",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L3"
+    },
+    "owner": "Long",
+    "backup": "Khánh",
+    "sme": "Long"
+  },
+  {
+    "id": 46,
+    "domain": "Wireless",
+    "skill": "Ekahau Survey",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L4",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L3"
+    },
+    "owner": "Long",
+    "backup": "Khánh",
+    "sme": "Long"
+  },
+  {
+    "id": 47,
+    "domain": "Wireless",
+    "skill": "Wireless Design",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L4",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L3"
+    },
+    "owner": "Long",
+    "backup": "Khánh",
+    "sme": "Long"
+  },
+  {
+    "id": 48,
+    "domain": "Security",
+    "skill": "Palo Alto",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L4",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L2",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 49,
+    "domain": "Security",
+    "skill": "Check Point",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L3",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L2",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 50,
+    "domain": "Security",
+    "skill": "Fortinet",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L4",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L2",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 51,
+    "domain": "Security",
+    "skill": "Sophos",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L3",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L2",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 52,
+    "domain": "Security",
+    "skill": "Cisco ASA",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L3",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L2",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 53,
+    "domain": "Security",
+    "skill": "WAF",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L3",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L2",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 54,
+    "domain": "Security",
+    "skill": "Trend Micro",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L3",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L2",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 55,
+    "domain": "Security",
+    "skill": "Defender",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L3",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L3",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 56,
+    "domain": "Security",
+    "skill": "MFA",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L3",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L3",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 57,
+    "domain": "Security",
+    "skill": "LDAP",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L3",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L3",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 58,
+    "domain": "Security",
+    "skill": "RADIUS",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L3",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L2",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Long",
+    "backup": "Sang",
+    "sme": "Long"
+  },
+  {
+    "id": 59,
+    "domain": "Syslog & Monitoring",
+    "skill": "Zabbix",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L4",
+      "Thi": "L1",
+      "Thông": "L3",
+      "Khánh": "L1"
+    },
+    "owner": "Bảo",
+    "backup": "Thông",
+    "sme": "Bảo"
+  },
+  {
+    "id": 60,
+    "domain": "Syslog & Monitoring",
+    "skill": "Splunk",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L3",
+      "Thi": "L1",
+      "Thông": "L4",
+      "Khánh": "L1"
+    },
+    "owner": "Thông",
+    "backup": "Bảo",
+    "sme": "Thông"
+  },
+  {
+    "id": 61,
+    "domain": "Syslog & Monitoring",
+    "skill": "PRTG",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L4",
+      "Thi": "L1",
+      "Thông": "L3",
+      "Khánh": "L1"
+    },
+    "owner": "Bảo",
+    "backup": "Thông",
+    "sme": "Bảo"
+  },
+  {
+    "id": 62,
+    "domain": "Syslog & Monitoring",
+    "skill": "Graylog",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L3",
+      "Thi": "L1",
+      "Thông": "L3",
+      "Khánh": "L1"
+    },
+    "owner": "Bảo",
+    "backup": "Thông",
+    "sme": "Bảo"
+  },
+  {
+    "id": 63,
+    "domain": "Syslog & Monitoring",
+    "skill": "OpenObserve",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L3",
+      "Thi": "L1",
+      "Thông": "L3",
+      "Khánh": "L1"
+    },
+    "owner": "Bảo",
+    "backup": "Thông",
+    "sme": "Bảo"
+  },
+  {
+    "id": 64,
+    "domain": "Syslog & Monitoring",
+    "skill": "SolarWinds",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L3",
+      "Thi": "L1",
+      "Thông": "L3",
+      "Khánh": "L1"
+    },
+    "owner": "Bảo",
+    "backup": "Thông",
+    "sme": "Bảo"
+  },
+  {
+    "id": 65,
+    "domain": "Syslog & Monitoring",
+    "skill": "ELK",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L3",
+      "Thi": "L1",
+      "Thông": "L4",
+      "Khánh": "L1"
+    },
+    "owner": "Thông",
+    "backup": "Bảo",
+    "sme": "Thông"
+  },
+  {
+    "id": 66,
+    "domain": "Syslog & Monitoring",
+    "skill": "Grafana",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L4",
+      "Thi": "L1",
+      "Thông": "L4",
+      "Khánh": "L1"
+    },
+    "owner": "Bảo",
+    "backup": "Thông",
+    "sme": "Bảo"
+  },
+  {
+    "id": 67,
+    "domain": "Database",
+    "skill": "SQL Server",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L2",
+      "Sang": "L2",
+      "Bảo": "L5",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Bảo",
+    "backup": "Tuấn",
+    "sme": "Bảo"
+  },
+  {
+    "id": 68,
+    "domain": "Database",
+    "skill": "PostgreSQL",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L3",
+      "Sang": "L2",
+      "Bảo": "L4",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Bảo",
+    "backup": "Tuấn",
+    "sme": "Bảo"
+  },
+  {
+    "id": 69,
+    "domain": "Database",
+    "skill": "MySQL",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L3",
+      "Sang": "L2",
+      "Bảo": "L4",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Bảo",
+    "backup": "Tuấn",
+    "sme": "Bảo"
+  },
+  {
+    "id": 70,
+    "domain": "Database",
+    "skill": "Oracle DB",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L2",
+      "Sang": "L2",
+      "Bảo": "L5",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L1"
+    },
+    "owner": "Bảo",
+    "backup": "Tuấn",
+    "sme": "Bảo"
+  },
+  {
+    "id": 71,
+    "domain": "Microsoft 365",
+    "skill": "Exchange Online",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L5",
+      "Thông": "L1",
+      "Khánh": "L2"
+    },
+    "owner": "Thi",
+    "backup": "Sang",
+    "sme": "Thi"
+  },
+  {
+    "id": 72,
+    "domain": "Microsoft 365",
+    "skill": "Teams",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L5",
+      "Thông": "L1",
+      "Khánh": "L3"
+    },
+    "owner": "Thi",
+    "backup": "Sang",
+    "sme": "Thi"
+  },
+  {
+    "id": 73,
+    "domain": "Microsoft 365",
+    "skill": "SharePoint",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L4",
+      "Thông": "L1",
+      "Khánh": "L2"
+    },
+    "owner": "Thi",
+    "backup": "Sang",
+    "sme": "Thi"
+  },
+  {
+    "id": 74,
+    "domain": "Microsoft 365",
+    "skill": "OneDrive",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L4",
+      "Thông": "L1",
+      "Khánh": "L2"
+    },
+    "owner": "Thi",
+    "backup": "Sang",
+    "sme": "Thi"
+  },
+  {
+    "id": 75,
+    "domain": "Microsoft 365",
+    "skill": "Intune",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L5",
+      "Thông": "L1",
+      "Khánh": "L2"
+    },
+    "owner": "Thi",
+    "backup": "Sang",
+    "sme": "Thi"
+  },
+  {
+    "id": 76,
+    "domain": "UC & Contact Center",
+    "skill": "Cisco CUCM",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L5"
+    },
+    "owner": "Khánh",
+    "backup": "Sang",
+    "sme": "Khánh"
+  },
+  {
+    "id": 77,
+    "domain": "UC & Contact Center",
+    "skill": "Cisco CMS",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L4"
+    },
+    "owner": "Khánh",
+    "backup": "Sang",
+    "sme": "Khánh"
+  },
+  {
+    "id": 78,
+    "domain": "UC & Contact Center",
+    "skill": "Avaya Aura",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L5"
+    },
+    "owner": "Khánh",
+    "backup": "Sang",
+    "sme": "Khánh"
+  },
+  {
+    "id": 79,
+    "domain": "UC & Contact Center",
+    "skill": "Avaya IPO",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L5"
+    },
+    "owner": "Khánh",
+    "backup": "Sang",
+    "sme": "Khánh"
+  },
+  {
+    "id": 80,
+    "domain": "UC & Contact Center",
+    "skill": "Avaya CMS",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L5"
+    },
+    "owner": "Khánh",
+    "backup": "Sang",
+    "sme": "Khánh"
+  },
+  {
+    "id": 81,
+    "domain": "UC & Contact Center",
+    "skill": "NICE",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L1",
+      "Khánh": "L5"
+    },
+    "owner": "Khánh",
+    "backup": "Sang",
+    "sme": "Khánh"
+  },
+  {
+    "id": 82,
+    "domain": "Automation & DevOps",
+    "skill": "PowerShell",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L3",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L4",
+      "Khánh": "L1"
+    },
+    "owner": "Thông",
+    "backup": "Tuấn",
+    "sme": "Thông"
+  },
+  {
+    "id": 83,
+    "domain": "Automation & DevOps",
+    "skill": "Python",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L3",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L5",
+      "Khánh": "L1"
+    },
+    "owner": "Thông",
+    "backup": "Tuấn",
+    "sme": "Thông"
+  },
+  {
+    "id": 84,
+    "domain": "Automation & DevOps",
+    "skill": "Bash",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L3",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L4",
+      "Khánh": "L1"
+    },
+    "owner": "Thông",
+    "backup": "Tuấn",
+    "sme": "Thông"
+  },
+  {
+    "id": 85,
+    "domain": "Automation & DevOps",
+    "skill": "Ansible",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L3",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L5",
+      "Khánh": "L1"
+    },
+    "owner": "Thông",
+    "backup": "Tuấn",
+    "sme": "Thông"
+  },
+  {
+    "id": 86,
+    "domain": "Automation & DevOps",
+    "skill": "Terraform",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L3",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L5",
+      "Khánh": "L1"
+    },
+    "owner": "Thông",
+    "backup": "Tuấn",
+    "sme": "Thông"
+  },
+  {
+    "id": 87,
+    "domain": "Automation & DevOps",
+    "skill": "Azure DevOps",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L3",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L4",
+      "Khánh": "L1"
+    },
+    "owner": "Thông",
+    "backup": "Tuấn",
+    "sme": "Thông"
+  },
+  {
+    "id": 88,
+    "domain": "Automation & DevOps",
+    "skill": "GitLab",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L3",
+      "Sang": "L2",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L4",
+      "Khánh": "L1"
+    },
+    "owner": "Thông",
+    "backup": "Tuấn",
+    "sme": "Thông"
+  },
+  {
+    "id": 89,
+    "domain": "AI Infrastructure",
+    "skill": "Microsoft Copilot",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L5",
+      "Khánh": "L1"
+    },
+    "owner": "Thông",
+    "backup": "Sang",
+    "sme": "Thông"
+  },
+  {
+    "id": 90,
+    "domain": "AI Infrastructure",
+    "skill": "Azure AI",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L4",
+      "Khánh": "L1"
+    },
+    "owner": "Thông",
+    "backup": "Sang",
+    "sme": "Thông"
+  },
+  {
+    "id": 91,
+    "domain": "AI Infrastructure",
+    "skill": "OpenAI API",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L4",
+      "Khánh": "L1"
+    },
+    "owner": "Thông",
+    "backup": "Sang",
+    "sme": "Thông"
+  },
+  {
+    "id": 92,
+    "domain": "AI Infrastructure",
+    "skill": "GPU Server",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L4",
+      "Khánh": "L1"
+    },
+    "owner": "Thông",
+    "backup": "Sang",
+    "sme": "Thông"
+  },
+  {
+    "id": 93,
+    "domain": "AI Infrastructure",
+    "skill": "Vector Database",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L4",
+      "Khánh": "L1"
+    },
+    "owner": "Thông",
+    "backup": "Sang",
+    "sme": "Thông"
+  },
+  {
+    "id": 94,
+    "domain": "AI Infrastructure",
+    "skill": "RAG Architecture",
+    "ratings": {
+      "Toàn": "L1",
+      "Long": "L1",
+      "Tuấn": "L1",
+      "Sang": "L3",
+      "Bảo": "L2",
+      "Thi": "L1",
+      "Thông": "L5",
+      "Khánh": "L1"
+    },
+    "owner": "Thông",
+    "backup": "Sang",
+    "sme": "Thông"
+  }
+]

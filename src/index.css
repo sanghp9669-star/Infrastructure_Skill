@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #0f172a;
+    background-color: #f8fafc;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Monospace tabular numerals for all metrics and tables */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ==========================================================================
+   THEME STYLING: WHITE (DEFAULT), DARK, & BLUE MODES
+   ========================================================================== */
+
+/* 1. DARK MODE ([data-theme="dark"]) */
+html[data-theme="dark"],
+[data-theme="dark"] body {
+  background-color: #0b0f19 !important;
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] header {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  border-bottom-color: #334155 !important;
+}
+
+[data-theme="dark"] footer {
+  background-color: #0f172a !important;
+  border-top-color: #334155 !important;
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .bg-white {
+  background-color: #0f172a !important;
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .bg-slate-50,
+[data-theme="dark"] .bg-slate-50\/80,
+[data-theme="dark"] .bg-slate-50\/70,
+[data-theme="dark"] .bg-slate-50\/60,
+[data-theme="dark"] .bg-slate-100,
+[data-theme="dark"] .bg-slate-100\/80 {
+  background-color: #1e293b !important;
+}
+
+[data-theme="dark"] .bg-slate-200 {
+  background-color: #334155 !important;
+}
+
+[data-theme="dark"] .text-slate-900,
+[data-theme="dark"] .text-slate-800 {
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .text-slate-700,
+[data-theme="dark"] .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .text-slate-500,
+[data-theme="dark"] .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .border-slate-100,
+[data-theme="dark"] .border-slate-200,
+[data-theme="dark"] .border-slate-200\/90,
+[data-theme="dark"] .border-slate-200\/80,
+[data-theme="dark"] .border-slate-200\/60,
+[data-theme="dark"] .border-slate-300 {
+  border-color: #334155 !important;
+}
+
+[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]),
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  border-color: #475569 !important;
+}
+
+[data-theme="dark"] select option {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .hover\:bg-slate-50:hover,
+[data-theme="dark"] .hover\:bg-slate-50\/80:hover,
+[data-theme="dark"] .hover\:bg-slate-100:hover {
+  background-color: #24344d !important;
+}
+
+[data-theme="dark"] th {
+  background-color: #1e293b !important;
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .bg-indigo-50,
+[data-theme="dark"] .bg-indigo-50\/60,
+[data-theme="dark"] .bg-indigo-50\/40 {
+  background-color: rgba(99, 102, 241, 0.15) !important;
+}
+
+
+/* 2. BLUE MODE ([data-theme="blue"] - Enterprise Deep Navy & Cobalt Tech) */
+html[data-theme="blue"],
+[data-theme="blue"] body {
+  background-color: #030a1a !important;
+  color: #f0f7ff !important;
+}
+
+[data-theme="blue"] header {
+  background-color: rgba(10, 25, 54, 0.95) !important;
+  border-bottom-color: #1e3a8a !important;
+}
+
+[data-theme="blue"] footer {
+  background-color: #0a1936 !important;
+  border-top-color: #1e3a8a !important;
+  color: #7dd3fc !important;
+}
+
+[data-theme="blue"] .bg-white {
+  background-color: #0a1936 !important;
+  color: #f0f7ff;
+}
+
+[data-theme="blue"] .bg-slate-50,
+[data-theme="blue"] .bg-slate-50\/80,
+[data-theme="blue"] .bg-slate-50\/70,
+[data-theme="blue"] .bg-slate-50\/60,
+[data-theme="blue"] .bg-slate-100,
+[data-theme="blue"] .bg-slate-100\/80 {
+  background-color: #0f264e !important;
+}
+
+[data-theme="blue"] .bg-slate-200 {
+  background-color: #1a3c75 !important;
+}
+
+[data-theme="blue"] .text-slate-900,
+[data-theme="blue"] .text-slate-800 {
+  color: #f0f7ff !important;
+}
+
+[data-theme="blue"] .text-slate-700,
+[data-theme="blue"] .text-slate-600 {
+  color: #bae6fd !important;
+}
+
+[data-theme="blue"] .text-slate-500,
+[data-theme="blue"] .text-slate-400 {
+  color: #7dd3fc !important;
+}
+
+[data-theme="blue"] .border-slate-100,
+[data-theme="blue"] .border-slate-200,
+[data-theme="blue"] .border-slate-200\/90,
+[data-theme="blue"] .border-slate-200\/80,
+[data-theme="blue"] .border-slate-200\/60,
+[data-theme="blue"] .border-slate-300 {
+  border-color: #1e40af !important;
+}
+
+[data-theme="blue"] input:not([type="checkbox"]):not([type="radio"]),
+[data-theme="blue"] select,
+[data-theme="blue"] textarea {
+  background-color: #0f264e !important;
+  color: #f0f7ff !important;
+  border-color: #2563eb !important;
+}
+
+[data-theme="blue"] select option {
+  background-color: #0a1936 !important;
+  color: #f0f7ff !important;
+}
+
+[data-theme="blue"] .hover\:bg-slate-50:hover,
+[data-theme="blue"] .hover\:bg-slate-50\/80:hover,
+[data-theme="blue"] .hover\:bg-slate-100:hover {
+  background-color: #16366b !important;
+}
+
+[data-theme="blue"] th {
+  background-color: #0f264e !important;
+  color: #e0f2fe !important;
+}
+
+[data-theme="blue"] .bg-indigo-50,
+[data-theme="blue"] .bg-indigo-50\/60,
+[data-theme="blue"] .bg-indigo-50\/40 {
+  background-color: rgba(37, 99, 235, 0.2) !important;
+}
+
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+[data-theme="blue"] ::-webkit-scrollbar-thumb {
+  background: #1e40af;
+}
+[data-theme="blue"] ::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+/* Print Styles for Executive PDF Report */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+
+  body, html {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 10pt;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-break-inside-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-page-break {
+    page-break-before: always;
+  }
+
+  /* Ensure background colors show up in PDF print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+@media screen {
+  .print-only {
+    display: none !important;
+  }
+}
