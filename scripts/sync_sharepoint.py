@@ -237,6 +237,15 @@ def sync(target_url=None, force=False, local_file=None):
     now = get_timestamp()
     state['lastCheckTime'] = now
     
+    # Load existing skills for fallback/diffing at start so old_skills is always defined
+    old_skills = []
+    if os.path.exists(CURRENT_SKILLS_FILE):
+        try:
+            with open(CURRENT_SKILLS_FILE, 'r', encoding='utf-8') as cf:
+                old_skills = json.load(cf)
+        except Exception:
+            pass
+
     try:
         if local_file and os.path.exists(local_file):
             with open(local_file, 'rb') as f:
@@ -247,21 +256,19 @@ def sync(target_url=None, force=False, local_file=None):
             source_desc = 'SharePoint Excel Trực Tuyến'
 
         if len(data_bytes) < 1000 or data_bytes[:4] != b'PK\x03\x04':
+            lower_sample = data_bytes[:3000].lower()
+            if b'<html' in lower_sample or b'<!doctype' in lower_sample or b'sign in' in lower_sample or b'bssointerrupt' in lower_sample:
+                raise Exception(
+                    'Link SharePoint này yêu cầu đăng nhập tài khoản Microsoft (bị chặn bởi quyền bảo mật tổ chức). '
+                    'Vui lòng chia sẻ lại link ở chế độ "Bất kỳ ai có liên kết" (Anyone with the link), '
+                    'hoặc dùng tab "Nguồn File Excel Trên Máy Tính (.xlsx)" để tải trực tiếp file lên hệ thống.'
+                )
             raise Exception('File tải về không đúng định dạng Excel (XLSX).')
             
         checksum = hashlib.md5(data_bytes).hexdigest()
         prev_checksum = state.get('lastChecksum', '')
         
         is_changed = (checksum != prev_checksum)
-        
-        # Load existing skills for diffing
-        old_skills = []
-        if os.path.exists(CURRENT_SKILLS_FILE):
-            try:
-                with open(CURRENT_SKILLS_FILE, 'r', encoding='utf-8') as cf:
-                    old_skills = json.load(cf)
-            except Exception:
-                pass
 
         if is_changed or force or not os.path.exists(CURRENT_SKILLS_FILE):
             parsed_skills, excel_members = parse_excel_bytes(data_bytes)

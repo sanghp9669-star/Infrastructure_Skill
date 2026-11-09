@@ -1,13 +1,63 @@
 {
   "url": "https://viendatvidaco-my.sharepoint.com/:x:/g/personal/sanghp_viendat_com/IQB36SrdN_ydQreldzHIPv0_AZRCQAFKmucHJgqTLElvuoI?download=1",
-  "lastChecksum": "3550378425ffeb86a38739f138266273",
-  "lastCheckTime": "2026-11-05 07:10:26",
-  "lastSyncTime": "2026-11-05 07:10:26",
+  "lastChecksum": "64a8a8cca4a6d2161f3b0331ca79c399",
+  "lastCheckTime": "2026-11-09 08:45:12",
+  "lastSyncTime": "2026-11-09 08:45:12",
   "status": "success",
   "intervalMinutes": 5,
-  "enabled": false,
+  "enabled": true,
   "autoPushOnEdit": false,
   "history": [
+    {
+      "timestamp": "2026-11-09 08:45:12",
+      "status": "updated",
+      "message": "Đồng bộ thủ công tức thì: Đã kiểm tra và cập nhật 9 mục thay đổi từ SharePoint Excel Trực Tuyến (Tổng 122 kỹ năng)",
+      "itemCount": 122,
+      "diffCount": 9
+    },
+    {
+      "timestamp": "2026-11-09 08:42:28",
+      "status": "updated",
+      "message": "Đồng bộ thủ công tức thì: Đã kiểm tra và cập nhật 3 mục thay đổi từ File tải lên (manual_uploaded.xlsx) (Tổng 118 kỹ năng)",
+      "itemCount": 118,
+      "diffCount": 3
+    },
+    {
+      "timestamp": "2026-11-09 08:42:15",
+      "status": "error",
+      "message": "Lỗi đồng bộ thủ công: Link SharePoint này yêu cầu đăng nhập tài khoản Microsoft (bị chặn bởi quyền bảo mật tổ chức). Vui lòng chia sẻ lại link ở chế độ \"Bất kỳ ai có liên kết\" (Anyone with the link), hoặc dùng tab \"Nguồn File Excel Trên Máy Tính (.xlsx)\" để tải trực tiếp file lên hệ thống.",
+      "itemCount": 0
+    },
+    {
+      "timestamp": "2026-11-09 08:40:16",
+      "status": "error",
+      "message": "Lỗi đồng bộ thủ công: Link SharePoint này yêu cầu đăng nhập tài khoản Microsoft (bị chặn bởi quyền bảo mật tổ chức). Vui lòng chia sẻ lại link ở chế độ \"Bất kỳ ai có liên kết\" (Anyone with the link), hoặc dùng tab \"Nguồn File Excel Trên Máy Tính (.xlsx)\" để tải trực tiếp file lên hệ thống.",
+      "itemCount": 0
+    },
+    {
+      "timestamp": "2026-11-09 08:40:07",
+      "status": "error",
+      "message": "Lỗi đồng bộ thủ công: Link SharePoint này yêu cầu đăng nhập tài khoản Microsoft (bị chặn bởi quyền bảo mật tổ chức). Vui lòng chia sẻ lại link ở chế độ \"Bất kỳ ai có liên kết\" (Anyone with the link), hoặc dùng tab \"Nguồn File Excel Trên Máy Tính (.xlsx)\" để tải trực tiếp file lên hệ thống.",
+      "itemCount": 0
+    },
+    {
+      "timestamp": "2026-11-09 08:39:57",
+      "status": "error",
+      "message": "Lỗi đồng bộ thủ công: Link SharePoint này yêu cầu đăng nhập tài khoản Microsoft (bị chặn bởi quyền bảo mật tổ chức). Vui lòng chia sẻ lại link ở chế độ \"Bất kỳ ai có liên kết\" (Anyone with the link), hoặc dùng tab \"Nguồn File Excel Trên Máy Tính (.xlsx)\" để tải trực tiếp file lên hệ thống.",
+      "itemCount": 0
+    },
+    {
+      "timestamp": "2026-11-09 08:38:57",
+      "status": "error",
+      "message": "Lỗi đồng bộ thủ công: File tải về không đúng định dạng Excel (XLSX).",
+      "itemCount": 0
+    },
+    {
+      "timestamp": "2026-11-09 08:37:59",
+      "status": "error",
+      "message": "Lỗi đồng bộ thủ công: File tải về không đúng định dạng Excel (XLSX).",
+      "itemCount": 0
+    },
     {
       "timestamp": "2026-11-05 07:10:26",
       "status": "updated",
@@ -122,64 +172,8 @@
       "message": "Đồng bộ thủ công tức thì: Đã kiểm tra và cập nhật 3 mục thay đổi từ SharePoint Excel Trực Tuyến (Tổng 118 kỹ năng)",
       "itemCount": 118,
       "diffCount": 3
-    },
-    {
-      "timestamp": "2026-10-01 14:48:16",
-      "status": "updated",
-      "message": "Đồng bộ thủ công tức thì: Đã kiểm tra và cập nhật 3 mục thay đổi từ SharePoint Excel Trực Tuyến (Tổng 118 kỹ năng)",
-      "itemCount": 118,
-      "diffCount": 3
-    },
-    {
-      "timestamp": "2026-10-01 14:46:48",
-      "status": "updated",
-      "message": "Đồng bộ thủ công tức thì: Đã kiểm tra và cập nhật 3 mục thay đổi từ SharePoint Excel Trực Tuyến (Tổng 118 kỹ năng)",
-      "itemCount": 118,
-      "diffCount": 3
-    },
-    {
-      "timestamp": "2026-10-01 14:45:57",
-      "status": "updated",
-      "message": "Đồng bộ thủ công tức thì: Đã kiểm tra và cập nhật 3 mục thay đổi từ SharePoint Excel Trực Tuyến (Tổng 118 kỹ năng)",
-      "itemCount": 118,
-      "diffCount": 3
-    },
-    {
-      "timestamp": "2026-10-01 14:44:54",
-      "status": "updated",
-      "message": "Đồng bộ thủ công tức thì: Đã kiểm tra và cập nhật 3 mục thay đổi từ SharePoint Excel Trực Tuyến (Tổng 118 kỹ năng)",
-      "itemCount": 118,
-      "diffCount": 3
-    },
-    {
-      "timestamp": "2026-10-01 14:41:36",
-      "status": "updated",
-      "message": "Đồng bộ thủ công tức thì: Đã kiểm tra và cập nhật 3 mục thay đổi từ SharePoint Excel Trực Tuyến (Tổng 118 kỹ năng)",
-      "itemCount": 118,
-      "diffCount": 3
-    },
-    {
-      "timestamp": "2026-10-01 14:41:14",
-      "status": "updated",
-      "message": "Đồng bộ thủ công tức thì: Đã kiểm tra và cập nhật 109 mục thay đổi từ SharePoint Excel Trực Tuyến (Tổng 118 kỹ năng)",
-      "itemCount": 118,
-      "diffCount": 109
-    },
-    {
-      "timestamp": "2026-09-30 10:12:02",
-      "status": "updated",
-      "message": "Đồng bộ thủ công tức thì: Đã kiểm tra và cập nhật 16 mục thay đổi từ SharePoint Excel Trực Tuyến (Tổng 109 kỹ năng)",
-      "itemCount": 109,
-      "diffCount": 16
-    },
-    {
-      "timestamp": "2026-09-30 10:11:04",
-      "status": "updated",
-      "message": "Đồng bộ thủ công tức thì: Đã xác thực toàn bộ 109 kỹ năng từ SharePoint Excel Trực Tuyến (Khớp hoàn toàn)",
-      "itemCount": 109,
-      "diffCount": 0
     }
   ],
-  "lastError": "File tải về không đúng định dạng Excel (XLSX).",
+  "lastError": "",
   "lastSaveTime": "2026-09-28T14:41:54.743Z"
 }

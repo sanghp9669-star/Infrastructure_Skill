@@ -379,15 +379,59 @@ export const ManualSyncModal: React.FC<ManualSyncModalProps> = ({
                   )}
                 </div>
               ) : (
-                <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 flex items-start gap-3">
-                  <AlertTriangle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-rose-950 font-bold text-xs block">
-                      Không Thể Hoàn Tất Đồng Bộ
-                    </strong>
-                    <p className="text-rose-800 text-[11px] mt-0.5">
-                      {syncResult.error || 'Vui lòng kiểm tra lại liên kết SharePoint hoặc tính khả dụng của file.'}
-                    </p>
+                <div className="space-y-3">
+                  <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 flex items-start gap-3">
+                    <AlertTriangle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
+                    <div className="flex-1">
+                      <strong className="text-rose-950 font-bold text-xs block">
+                        Không Thể Tải File Tự Động Từ Link SharePoint
+                      </strong>
+                      <p className="text-rose-800 text-[11px] mt-1 leading-relaxed">
+                        {syncResult.error || 'Vui lòng kiểm tra lại liên kết SharePoint hoặc tính khả dụng của file.'}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Actionable Solution Card */}
+                  <div className="p-4 rounded-xl bg-amber-50/80 border border-amber-200 text-xs text-amber-950 space-y-2.5">
+                    <div className="font-bold text-xs text-amber-900 flex items-center gap-1.5">
+                      <span>💡 2 Cách Khắc Phục Nhanh Nhất:</span>
+                    </div>
+
+                    <div className="space-y-2 text-[11px] leading-relaxed">
+                      <div className="p-2.5 bg-white/80 rounded-lg border border-amber-200/70">
+                        <strong className="text-indigo-900 block font-bold mb-1">
+                          Cách 1 (Nhanh & chắc chắn nhất): Tải trực tiếp file Excel
+                        </strong>
+                        <p className="text-slate-600 mb-2">
+                          Bạn chỉ cần tải file Excel về máy tính, sau đó chuyển sang tab <strong>"Nguồn File Excel Trên Máy Tính"</strong> và tải lên. Hệ thống sẽ đọc và đồng bộ 100% dữ liệu ngay lập tức mà không bị Microsoft chặn quyền truy cập.
+                        </p>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setActiveTab('file');
+                            setSyncResult(null);
+                            setSyncStep(0);
+                          }}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-bold text-xs shadow-xs transition-all"
+                        >
+                          <Upload className="w-3.5 h-3.5" />
+                          <span>Chuyển Sang Tab Tải File Trực Tiếp Ngay</span>
+                        </button>
+                      </div>
+
+                      <div className="p-2.5 bg-white/80 rounded-lg border border-amber-200/70">
+                        <strong className="text-slate-900 block font-bold mb-1">
+                          Cách 2: Cấp quyền link công khai trên SharePoint
+                        </strong>
+                        <ol className="list-decimal list-inside text-slate-600 space-y-0.5">
+                          <li>Mở file trên <strong>SharePoint / OneDrive</strong>.</li>
+                          <li>Nhấp nút <strong>Chia sẻ (Share)</strong> ở góc trên bên phải.</li>
+                          <li>Nhấp vào ô quyền hạn và chọn <strong>"Bất kỳ ai có liên kết" (Anyone with the link)</strong>.</li>
+                          <li>Bấm <strong>Sao chép liên kết (Copy link)</strong> và dán lại vào ô liên kết trên web.</li>
+                        </ol>
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}

@@ -295,7 +295,7 @@ export const INITIAL_SKILLS: SkillItem[] = [
       "Duy": "L2",
       "Sang": "L2",
       "Bảo": "L2",
-      "Thông": "L1",
+      "Thông": "L2",
       "Khánh": "L2",
       "NV.A": "L0"
     },
@@ -1395,7 +1395,7 @@ export const INITIAL_SKILLS: SkillItem[] = [
       "Duy": "L2",
       "Sang": "L2",
       "Bảo": "L2",
-      "Thông": "L1",
+      "Thông": "L2",
       "Khánh": "L1",
       "NV.A": "L0"
     },
@@ -2286,6 +2286,86 @@ export const INITIAL_SKILLS: SkillItem[] = [
   },
   {
     "id": 106,
+    "domain": "HNTH",
+    "skill": "Polycom: MCU and Endpoint",
+    "ratings": {
+      "Toàn": "L0",
+      "Long": "L0",
+      "Tuấn": "L0",
+      "Duy": "L0",
+      "Sang": "L2",
+      "Bảo": "L0",
+      "Thông": "L0",
+      "Khánh": "L0",
+      "NV.A": "L0"
+    },
+    "owner": "",
+    "backup": "",
+    "sme": "",
+    "evidence": ""
+  },
+  {
+    "id": 107,
+    "domain": "HNTH",
+    "skill": "Pexip: MCU and Endpoint",
+    "ratings": {
+      "Toàn": "L0",
+      "Long": "L0",
+      "Tuấn": "L0",
+      "Duy": "L0",
+      "Sang": "L0",
+      "Bảo": "L0",
+      "Thông": "L0",
+      "Khánh": "L0",
+      "NV.A": "L0"
+    },
+    "owner": "",
+    "backup": "",
+    "sme": "",
+    "evidence": ""
+  },
+  {
+    "id": 108,
+    "domain": "HNTH",
+    "skill": "Cisco CMS: MCU and Endpoint",
+    "ratings": {
+      "Toàn": "L0",
+      "Long": "L0",
+      "Tuấn": "L0",
+      "Duy": "L0",
+      "Sang": "L1",
+      "Bảo": "L0",
+      "Thông": "L0",
+      "Khánh": "L0",
+      "NV.A": "L0"
+    },
+    "owner": "",
+    "backup": "",
+    "sme": "",
+    "evidence": ""
+  },
+  {
+    "id": 109,
+    "domain": "HNTH",
+    "skill": "Vinteo: MCU and Endpoint",
+    "ratings": {
+      "Toàn": "L0",
+      "Long": "L0",
+      "Tuấn": "L0",
+      "Duy": "L0",
+      "Sang": "L0",
+      "Bảo": "L0",
+      "Thông": "L0",
+      "Khánh": "L0",
+      "NV.A": "L0"
+    },
+    "owner": "",
+    "backup": "",
+    "sme": "",
+    "evidence": ""
+  },
+  {
+    "id": 110,
     "domain": "Container Platform",
     "skill": "Docker",
     "ratings": {
@@ -2305,7 +2385,7 @@ export const INITIAL_SKILLS: SkillItem[] = [
     "evidence": ""
   },
   {
-    "id": 107,
+    "id": 111,
     "domain": "Container Platform",
     "skill": "Kubernetes",
     "ratings": {
@@ -2325,7 +2405,7 @@ export const INITIAL_SKILLS: SkillItem[] = [
     "evidence": ""
   },
   {
-    "id": 108,
+    "id": 112,
     "domain": "Container Platform",
     "skill": "OpenShift",
     "ratings": {
@@ -2345,7 +2425,7 @@ export const INITIAL_SKILLS: SkillItem[] = [
     "evidence": ""
   },
   {
-    "id": 109,
+    "id": 113,
     "domain": "Container Platform",
     "skill": "Rancher",
     "ratings": {
@@ -2365,7 +2445,7 @@ export const INITIAL_SKILLS: SkillItem[] = [
     "evidence": ""
   },
   {
-    "id": 110,
+    "id": 114,
     "domain": "Basic Database Querying",
     "skill": "SQL Server",
     "ratings": {
@@ -2385,7 +2465,7 @@ export const INITIAL_SKILLS: SkillItem[] = [
     "evidence": ""
   },
   {
-    "id": 111,
+    "id": 115,
     "domain": "Basic Database Querying",
     "skill": "PostgreSQL",
     "ratings": {
@@ -2405,7 +2485,7 @@ export const INITIAL_SKILLS: SkillItem[] = [
     "evidence": ""
   },
   {
-    "id": 112,
+    "id": 116,
     "domain": "Basic Database Querying",
     "skill": "MySQL",
     "ratings": {
@@ -2425,7 +2505,7 @@ export const INITIAL_SKILLS: SkillItem[] = [
     "evidence": ""
   },
   {
-    "id": 113,
+    "id": 117,
     "domain": "Basic Database Querying",
     "skill": "Oracle DB",
     "ratings": {
@@ -2445,7 +2525,7 @@ export const INITIAL_SKILLS: SkillItem[] = [
     "evidence": ""
   },
   {
-    "id": 114,
+    "id": 118,
     "domain": "Basic Programming",
     "skill": "Python",
     "ratings": {
@@ -2465,7 +2545,7 @@ export const INITIAL_SKILLS: SkillItem[] = [
     "evidence": ""
   },
   {
-    "id": 115,
+    "id": 119,
     "domain": "Basic Programming",
     "skill": "C#",
     "ratings": {
@@ -2485,7 +2565,7 @@ export const INITIAL_SKILLS: SkillItem[] = [
     "evidence": ""
   },
   {
-    "id": 116,
+    "id": 120,
     "domain": "Basic Programming",
     "skill": "C++",
     "ratings": {
@@ -2505,7 +2585,7 @@ export const INITIAL_SKILLS: SkillItem[] = [
     "evidence": ""
   },
   {
-    "id": 117,
+    "id": 121,
     "domain": "Basic Programming",
     "skill": "React",
     "ratings": {
@@ -2525,7 +2605,7 @@ export const INITIAL_SKILLS: SkillItem[] = [
     "evidence": ""
   },
   {
-    "id": 118,
+    "id": 122,
     "domain": "Log file analysis and troubleshooting",
     "skill": "All systems, applications, ...",
     "ratings": {

@@ -330,7 +330,14 @@ app.post('/api/sync', async (req: Request, res: Response) => {
       skills: currentSkills
     });
   } catch (err: any) {
-    res.status(500).json({ success: false, error: err.message });
+    let fallbackResult = null;
+    try {
+      if (err.stdout) fallbackResult = JSON.parse(err.stdout.trim());
+    } catch {}
+    if (fallbackResult) {
+      return res.json(fallbackResult);
+    }
+    res.status(500).json({ success: false, error: err.message || 'Lỗi xử lý đồng bộ' });
   }
 });
 
@@ -374,7 +381,14 @@ app.post('/api/manual-sync', async (req: Request, res: Response) => {
       state
     });
   } catch (err: any) {
-    res.status(500).json({ success: false, error: err.message });
+    let fallbackResult = null;
+    try {
+      if (err.stdout) fallbackResult = JSON.parse(err.stdout.trim());
+    } catch {}
+    if (fallbackResult) {
+      return res.json(fallbackResult);
+    }
+    res.status(500).json({ success: false, error: err.message || 'Lỗi xử lý đồng bộ' });
   }
 });
 

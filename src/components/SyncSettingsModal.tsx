@@ -133,9 +133,14 @@ export const SyncSettingsModal: React.FC<SyncSettingsModalProps> = ({
               placeholder="https://viendatvidaco-my.sharepoint.com/:x:/g/personal/..."
               className="w-full px-3 py-2 text-xs font-mono bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-hidden focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
             />
-            <span className="text-[11px] text-slate-500 block">
-              Hệ thống sử dụng đường dẫn này để tự động tải và đối chiếu mã băm (MD5 checksum) của file Excel.
-            </span>
+            <div className="space-y-1">
+              <span className="text-[11px] text-slate-500 block">
+                Hệ thống sử dụng đường dẫn này để tự động tải và đối chiếu mã băm (MD5 checksum) của file Excel.
+              </span>
+              <span className="text-[10px] text-amber-700 font-medium bg-amber-50 px-2 py-0.5 rounded border border-amber-200/60 block">
+                ⚠️ Lưu ý: Link cần được chọn quyền <strong>"Bất kỳ ai có liên kết" (Anyone with the link)</strong> khi chia sẻ trên SharePoint/OneDrive để hệ thống web có thể tự động tải file mà không bị chặn bởi trang đăng nhập Microsoft.
+              </span>
+            </div>
           </div>
 
           {/* Sync Frequency & Toggle */}
