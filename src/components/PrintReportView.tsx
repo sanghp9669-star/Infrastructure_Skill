@@ -116,6 +116,13 @@ export const PrintReportView: React.FC<PrintReportViewProps> = ({
       {/* Document Header */}
       <div className="border-b-2 border-slate-900 pb-4 mb-5 flex flex-wrap justify-between items-end gap-4">
         <div className="max-w-3xl">
+          <div className="mb-2">
+            <img
+              src="/assets/aistudio/vidaco_logo_ceade89e.png"
+              alt="VIDACO Logo"
+              className="h-9 w-auto object-contain"
+            />
+          </div>
           <div className="flex items-center gap-2 mb-1">
             <span className="px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider bg-slate-900 text-white rounded">
               Báo Cáo Kỹ Thuật

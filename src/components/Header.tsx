@@ -73,29 +73,37 @@ export const Header: React.FC<HeaderProps> = ({
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs no-print">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Zone 1: Single Text Element Wordmark */}
+          {/* Zone 1: Main Corporate Wordmark & Logo */}
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-xs">
-              V
-            </div>
-            <div>
-              <a href="#" className="text-base sm:text-lg font-bold tracking-tight text-slate-900 block leading-tight">
-                Viendat Skill Matrix
-              </a>
-              <div className="flex items-center gap-2 text-[11px] text-slate-500 font-medium">
-                <span>{totalSkills} Kỹ Năng Hạ Tầng</span>
-                <span>·</span>
-                {/* Database Primary status chip */}
-                <button
-                  onClick={onOpenManualSync}
-                  className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition-colors cursor-pointer"
-                  title="Cơ sở dữ liệu chính: Supabase (Lưu tự động). Nhấp để mở trung tâm đồng bộ."
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="font-bold">Database: Supabase (Tự Động)</span>
-                </button>
+            <a href="#" className="flex items-center gap-2.5 group">
+              <img
+                src="/assets/aistudio/vidaco_logo_ceade89e.png"
+                alt="VIDACO Logo"
+                className="h-9 w-auto max-w-[140px] object-contain transition-transform group-hover:scale-105"
+              />
+              <span className="hidden sm:inline-block w-px h-6 bg-slate-200" />
+              <div>
+                <span className="text-sm sm:text-base font-extrabold tracking-tight text-slate-900 block leading-tight group-hover:text-indigo-600 transition-colors">
+                  Skill Matrix
+                </span>
+                <div className="flex items-center gap-2 text-[11px] text-slate-500 font-medium">
+                  <span>{totalSkills} Kỹ Năng Hạ Tầng</span>
+                  <span>·</span>
+                  {/* Database Primary status chip */}
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onOpenManualSync();
+                    }}
+                    className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition-colors cursor-pointer"
+                    title="Cơ sở dữ liệu chính: Supabase (Lưu tự động). Nhấp để mở trung tâm đồng bộ."
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="font-bold">Database: Supabase (Tự Động)</span>
+                  </button>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
 
           {/* Zone 2: Streamlined Navigation Links */}
