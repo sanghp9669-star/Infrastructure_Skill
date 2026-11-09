@@ -30,7 +30,6 @@ interface ProjectFitViewProps {
   onUpdateProject: (project: Project) => void;
   onDeleteProject: (projectId: string) => void;
   onClearDemoProjects?: () => void;
-  onRestoreDemoProjects?: () => void;
 }
 
 export const ProjectFitView: React.FC<ProjectFitViewProps> = ({
@@ -41,8 +40,7 @@ export const ProjectFitView: React.FC<ProjectFitViewProps> = ({
   onAddProject,
   onUpdateProject,
   onDeleteProject,
-  onClearDemoProjects,
-  onRestoreDemoProjects
+  onClearDemoProjects
 }) => {
   const [selectedProjectId, setSelectedProjectId] = useState<string>(projects[0]?.id || '');
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -106,16 +104,6 @@ export const ProjectFitView: React.FC<ProjectFitViewProps> = ({
               <Plus className="w-4 h-4" />
               <span>Tạo Dự Án Mới</span>
             </button>
-
-            {onRestoreDemoProjects && (
-              <button
-                onClick={onRestoreDemoProjects}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-slate-900 bg-white border border-slate-200 hover:bg-slate-50 rounded-lg transition-colors"
-              >
-                <RotateCcw className="w-3.5 h-3.5 text-slate-400" />
-                <span>Nạp Dự Án Mẫu</span>
-              </button>
-            )}
           </div>
         </div>
 
@@ -128,7 +116,7 @@ export const ProjectFitView: React.FC<ProjectFitViewProps> = ({
             Chưa Có Dự Án Nào Được Tạo
           </h3>
           <p className="text-xs text-slate-500 max-w-md mx-auto mb-6 leading-relaxed">
-            Hệ thống không bắt buộc dùng dữ liệu mẫu. Bạn có thể tự do thêm các dự án thực tế của công ty để phân bổ nhân sự và đối chiếu ma trận kỹ năng đáp ứng.
+            File Excel hiện chưa có dữ liệu dự án. Bạn có thể bấm "Tạo Dự Án Mới" để khai báo các dự án thực tế và đối chiếu nhân sự đáp ứng ma trận kỹ năng.
           </p>
           <div className="flex items-center justify-center gap-3">
             <button
@@ -136,17 +124,8 @@ export const ProjectFitView: React.FC<ProjectFitViewProps> = ({
               className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 rounded-xl shadow-sm transition-all"
             >
               <Plus className="w-4 h-4" />
-              <span>Tạo Dự Án Đầu Tiên Của Bạn</span>
+              <span>Tạo Dự Án Đầu Tiên</span>
             </button>
-            {onRestoreDemoProjects && (
-              <button
-                onClick={onRestoreDemoProjects}
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors"
-              >
-                <RotateCcw className="w-3.5 h-3.5" />
-                <span>Xem Dữ Liệu Mẫu</span>
-              </button>
-            )}
           </div>
         </div>
 

@@ -17,11 +17,7 @@
     "owner": "",
     "backup": "",
     "sme": "",
-    "evidence": "https://www.credly.com/badges/vcp-dcv-2026 (VMware Certified Professional - Data Center Virtualization)",
-    "memberEvidence": {
-      "Toàn": "https://www.credly.com/badges/vcp-dcv-toan (ID: VCP-2024-8841)",
-      "Sang": "https://www.credly.com/badges/vcf-architect-sang (ID: VCF-2025-1029)"
-    }
+    "evidence": ""
   },
   {
     "id": 2,
@@ -41,10 +37,7 @@
     "owner": "",
     "backup": "",
     "sme": "",
-    "evidence": "https://www.credly.com/badges/vcp-dcv (VMware Certified Professional)",
-    "memberEvidence": {
-      "Toàn": "https://www.credly.com/badges/vcenter-advanced-toan"
-    }
+    "evidence": ""
   },
   {
     "id": 3,
@@ -284,8 +277,7 @@
     "owner": "",
     "backup": "",
     "sme": "",
-    "evidence": "https://learn.microsoft.com/credentials/certifications/windows-server-hybrid-administrator (Microsoft Certified: Windows Server Hybrid Administrator)",
-    "memberEvidence": {}
+    "evidence": ""
   },
   {
     "id": 15,
@@ -865,10 +857,7 @@
     "owner": "",
     "backup": "",
     "sme": "",
-    "evidence": "https://www.veeam.com/vmce (Veeam Certified Engineer VMCE 2026)",
-    "memberEvidence": {
-      "Toàn": "https://www.credly.com/badges/vmce-toan (ID: VMCE-2025-0192)"
-    }
+    "evidence": ""
   },
   {
     "id": 44,
@@ -948,10 +937,7 @@
     "owner": "",
     "backup": "",
     "sme": "",
-    "evidence": "https://www.cisco.com/verify/ccnp-enterprise (Cisco Certified Network Professional Enterprise)",
-    "memberEvidence": {
-      "Long": "https://www.cisco.com/verify/ccnp-long (ID: CSCO12984920)"
-    }
+    "evidence": ""
   },
   {
     "id": 48,
@@ -971,10 +957,7 @@
     "owner": "",
     "backup": "",
     "sme": "",
-    "evidence": "https://www.cisco.com/verify/ccnp-enterprise (Cisco CCNP Enterprise Routing & Services)",
-    "memberEvidence": {
-      "Long": "https://www.cisco.com/verify/ccnp-long (ID: CSCO12984920)"
-    }
+    "evidence": ""
   },
   {
     "id": 49,
@@ -1034,7 +1017,7 @@
     "owner": "",
     "backup": "",
     "sme": "",
-    "evidence": "https://www.cisco.com/verify/ccie-enterprise (Cisco CCIE Enterprise Infrastructure Written)"
+    "evidence": ""
   },
   {
     "id": 52,
@@ -1234,10 +1217,7 @@
     "owner": "",
     "backup": "",
     "sme": "",
-    "evidence": "https://www.credly.com/badges/pcnse (Palo Alto Networks Certified Network Security Engineer)",
-    "memberEvidence": {
-      "Long": "https://www.credly.com/badges/pcnse-long (ID: PCNSE-44810)"
-    }
+    "evidence": ""
   },
   {
     "id": 62,
@@ -1277,10 +1257,7 @@
     "owner": "",
     "backup": "",
     "sme": "",
-    "evidence": "https://training.fortinet.com/badges/fcp-network-security (Fortinet Certified Professional FCP)",
-    "memberEvidence": {
-      "Long": "https://training.fortinet.com/badges/fcp-long"
-    }
+    "evidence": ""
   },
   {
     "id": 64,
@@ -1820,10 +1797,7 @@
     "owner": "",
     "backup": "",
     "sme": "",
-    "evidence": "https://learn.microsoft.com/credentials/certifications/azure-database-administrator-associate (Microsoft Certified: Azure Database Administrator Associate DP-300)",
-    "memberEvidence": {
-      "Bảo": "https://learn.microsoft.com/users/bao-pham/credentials/DP-300"
-    }
+    "evidence": ""
   },
   {
     "id": 91,
@@ -1903,10 +1877,7 @@
     "owner": "",
     "backup": "",
     "sme": "",
-    "evidence": "https://www.cisco.com/verify/ccnp-collaboration (Cisco Certified Network Professional Collaboration)",
-    "memberEvidence": {
-      "Khánh": "https://www.cisco.com/verify/ccnp-collab-khanh (ID: CSCO13840291)"
-    }
+    "evidence": ""
   },
   {
     "id": 95,
@@ -2146,7 +2117,7 @@
     "owner": "",
     "backup": "",
     "sme": "",
-    "evidence": "https://www.docker.com/certified-associate (Docker Certified Associate DCA)"
+    "evidence": ""
   },
   {
     "id": 107,
@@ -2166,11 +2137,7 @@
     "owner": "",
     "backup": "",
     "sme": "",
-    "evidence": "https://www.credly.com/badges/cka (Certified Kubernetes Administrator - CNCF)",
-    "memberEvidence": {
-      "Tuấn": "https://www.credly.com/badges/cka-tuan (ID: CKA-2025-9921)",
-      "Thông": "https://www.credly.com/badges/ckad-thong (ID: CKAD-2024-7712)"
-    }
+    "evidence": ""
   },
   {
     "id": 108,
@@ -2230,10 +2197,7 @@
     "owner": "",
     "backup": "",
     "sme": "",
-    "evidence": "https://learn.microsoft.com/credentials/certifications/azure-database-administrator-associate (Microsoft Certified: Azure Database Administrator Associate DP-300)",
-    "memberEvidence": {
-      "Bảo": "https://learn.microsoft.com/users/bao-pham/credentials/DP-300"
-    }
+    "evidence": ""
   },
   {
     "id": 111,

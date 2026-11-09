@@ -278,18 +278,11 @@ def sync(target_url=None, force=False, local_file=None):
                 # STRICT FILTER: Only retain members currently defined in Excel columns
                 s['ratings'] = {m: s['ratings'].get(m, 'L0') for m in excel_members}
                 
-                # Owner, Backup, SME: Use REAL data from SharePoint file. If blank in Excel, keep blank ""
+                # Owner, Backup, SME, Evidence: Use strictly REAL data from SharePoint file. If blank in Excel, keep blank ""
                 s['owner'] = (s.get('owner') or '').strip()
                 s['backup'] = (s.get('backup') or '').strip()
                 s['sme'] = (s.get('sme') or '').strip()
                 s['evidence'] = (s.get('evidence') or '').strip()
-
-                if sk_key in old_map:
-                    old_s = old_map[sk_key]
-                    if not s['evidence']: 
-                        s['evidence'] = old_s.get('evidence', '')
-                    if 'memberEvidence' in old_s:
-                        s['memberEvidence'] = {m: ev for m, ev in old_s.get('memberEvidence', {}).items() if m in valid_members}
 
                 # Clear any role assigned to members not in active team
                 if s.get('owner') and s.get('owner') not in valid_members: s['owner'] = ''

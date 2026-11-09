@@ -97,28 +97,16 @@ export default function App() {
   const [skills, setSkills] = useState<SkillItem[]>(() => {
     try {
       const saved = localStorage.getItem('skill_matrix_custom_skills');
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length >= 100) {
+          return parsed.filter((s: SkillItem) => s.skill !== 'AI Cluster Networking (RoCEv2 / InfiniBand & GPU Fabric)');
+        }
+      }
     } catch {
       // fallback
     }
-    const initialPendingSkill: SkillItem = {
-      id: INITIAL_SKILLS.length + 1,
-      domain: 'Enterprise Networking & SD-WAN',
-      skill: 'AI Cluster Networking (RoCEv2 / InfiniBand & GPU Fabric)',
-      ratings: {
-        Sang: 'L2',
-        An: 'L1',
-        Cường: 'L1'
-      },
-      owner: '',
-      backup: '',
-      sme: '',
-      notes: '[Chờ duyệt] Bổ sung phục vụ cụm GPU Train Model cho Khách hàng Tài chính',
-      status: 'pending',
-      requestedBy: 'Sang',
-      requestId: 'req-1'
-    };
-    return [...INITIAL_SKILLS, initialPendingSkill];
+    return INITIAL_SKILLS;
   });
   const [members, setMembers] = useState<TeamMember[]>(() => {
     try {
@@ -307,7 +295,12 @@ export default function App() {
   const [projects, setProjects] = useState<Project[]>(() => {
     try {
       const saved = localStorage.getItem('skill_matrix_custom_projects');
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed)) {
+          return parsed.filter((p: Project) => !p.id.startsWith('proj-'));
+        }
+      }
     } catch {
       // fallback
     }
@@ -381,17 +374,11 @@ export default function App() {
   };
 
   const handleClearDemoProjects = () => {
-    if (window.confirm('Bạn có chắc chắn muốn xóa tất cả dự án để bắt đầu quản lý danh sách dự án thực tế mới?')) {
+    if (window.confirm('Bạn có chắc chắn muốn xóa tất cả dự án?')) {
       persistProjects([]);
-      setSyncToastMessage('Đã xóa tất cả dự án. Bạn có thể tự do tạo các dự án thực tế!');
+      setSyncToastMessage('Đã xóa tất cả dự án.');
       setTimeout(() => setSyncToastMessage(null), 3500);
     }
-  };
-
-  const handleRestoreDemoProjects = () => {
-    persistProjects(INITIAL_PROJECTS);
-    setSyncToastMessage('Đã nạp lại danh sách dự án mẫu!');
-    setTimeout(() => setSyncToastMessage(null), 3500);
   };
 
   const [activeTab, setActiveTab] = useState<ActiveTab>('matrix');
@@ -443,7 +430,9 @@ export default function App() {
       const saved = localStorage.getItem('skill_matrix_audit_logs');
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed.filter(l => !['An', 'Bình', 'Cường', 'Dũng'].includes(l.memberName));
+        }
       }
     } catch {
       // fallback
@@ -504,7 +493,9 @@ export default function App() {
       const saved = localStorage.getItem('skill_matrix_skill_requests');
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed.filter(r => !['An', 'Bình', 'Cường', 'Dũng'].includes(r.requesterName) && !r.id.startsWith('req-'));
+        }
       }
     } catch {
       // fallback
@@ -1805,7 +1796,6 @@ export default function App() {
             onUpdateProject={handleUpdateProject}
             onDeleteProject={handleDeleteProject}
             onClearDemoProjects={handleClearDemoProjects}
-            onRestoreDemoProjects={handleRestoreDemoProjects}
           />
         )}
       </main>
