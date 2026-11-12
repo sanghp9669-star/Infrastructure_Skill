@@ -44,7 +44,7 @@ export const MemberProfileModal: React.FC<MemberProfileModalProps> = ({
   onFilterMember,
   onEditMember
 }) => {
-  const [activeTab, setActiveTab] = useState<'radar' | 'responsibilities' | 'badges' | 'skills' | 'projects'>('radar');
+  const [activeTab, setActiveTab] = useState<'radar' | 'responsibilities' | 'badges' | 'skills'>('radar');
   const [respFilter, setRespFilter] = useState<'all' | 'owner' | 'sme' | 'dual' | 'spof'>('all');
 
   if (!member) return null;
@@ -327,19 +327,6 @@ export const MemberProfileModal: React.FC<MemberProfileModalProps> = ({
           >
             <CheckCircle2 className="w-4 h-4 text-emerald-600" />
             <span>Kỹ Năng L2 ({l2Skills.length})</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setActiveTab('projects')}
-            className={`flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold rounded-t-xl transition-all border-t border-x ${
-              activeTab === 'projects'
-                ? 'bg-white text-indigo-700 border-slate-200 -mb-px shadow-2xs font-extrabold'
-                : 'text-slate-600 hover:text-slate-900 border-transparent hover:bg-slate-100'
-            }`}
-          >
-            <Briefcase className="w-4 h-4 text-indigo-600" />
-            <span>Dự Án ({memberProjects.length})</span>
           </button>
         </div>
 
@@ -1084,53 +1071,6 @@ export const MemberProfileModal: React.FC<MemberProfileModalProps> = ({
                       </div>
                     );
                   })}
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* TAB 3: PROJECT CONTRIBUTIONS */}
-          {activeTab === 'projects' && (
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-slate-800">
-                  Dự án doanh nghiệp đang tham gia đóng góp:
-                </span>
-                <span className="text-xs text-slate-500">
-                  {memberProjects.length} dự án
-                </span>
-              </div>
-
-              {memberProjects.length === 0 ? (
-                <div className="p-8 text-center text-slate-400 bg-slate-50 rounded-xl border border-dashed border-slate-300">
-                  Hiện chưa được phân bổ vào dự án thực tế nào.
-                </div>
-              ) : (
-                <div className="space-y-2.5">
-                  {memberProjects.map(p => (
-                    <div key={p.id} className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex flex-wrap items-center justify-between gap-2">
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <span className="font-bold text-slate-900 text-xs">
-                            [{p.code}] {p.name}
-                          </span>
-                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${
-                            p.lead === member.name
-                              ? 'bg-purple-100 text-purple-900 border border-purple-200'
-                              : 'bg-emerald-100 text-emerald-900 border border-emerald-200'
-                          }`}>
-                            {p.lead === member.name ? '👑 Trưởng Dự Án (Lead)' : 'Kỹ Sư Triển Khai'}
-                          </span>
-                        </div>
-                        <span className="text-[11px] text-slate-500 block mt-0.5">
-                          Khách hàng: <strong>{p.client}</strong> · Thời hạn: {p.startDate} ➔ {p.targetDate}
-                        </span>
-                      </div>
-                      <span className="text-[10px] text-slate-600 bg-white px-2.5 py-1 rounded-lg border border-slate-200 font-medium">
-                        {p.status}
-                      </span>
-                    </div>
-                  ))}
                 </div>
               )}
             </div>

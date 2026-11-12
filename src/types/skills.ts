@@ -1,5 +1,5 @@
 export type CompetencyLevel = 'L0' | 'L1' | 'L2' | 'L3' | 'L4' | 'L5';
-export type AppTheme = 'light' | 'dark' | 'blue';
+export type AppTheme = 'light';
 
 export interface CompetencyDef {
   level: CompetencyLevel;
@@ -66,14 +66,14 @@ export interface FilterOptions {
   searchQuery: string;
   selectedDomain: string;
   selectedMember: string;
-  selectedProject: string;
+  selectedProject?: string;
   minLevel: CompetencyLevel | 'all';
   roleStatus: 'all' | 'has_owner' | 'no_owner' | 'has_backup' | 'no_backup' | 'has_sme' | 'no_sme' | 'risk_spof' | 'fully_covered' | 'pending_only';
   sortBy: 'id' | 'domain' | 'skill' | 'avgScore';
   sortOrder: 'asc' | 'desc';
 }
 
-export type ActiveTab = 'matrix' | 'charts' | 'projects';
+export type ActiveTab = 'matrix' | 'charts';
 
 export interface PrintReportConfig {
   departmentTitle: string;

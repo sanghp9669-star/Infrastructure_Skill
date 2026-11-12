@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { 
   ActiveTab, 
-  AppTheme,
-  AuditLogEntry,
+  AuditLogEntry, 
   CompetencyLevel, 
   FilterOptions, 
   HeatmapConfig,
   PrintReportConfig,
   Project,
   SkillItem, 
-  SkillRequest,
   TeamMember 
 } from './types/skills';
 import { 
@@ -20,7 +18,6 @@ import {
   TEAM_MEMBERS 
 } from './data/initialData';
 import { INITIAL_AUDIT_LOGS } from './data/initialAuditLogs';
-import { INITIAL_SKILL_REQUESTS } from './data/initialSkillRequests';
 import { 
   ENTERPRISE_STACK_ORDER, 
   SuggestedSkill 
@@ -31,7 +28,6 @@ import { FilterBar } from './components/FilterBar';
 import { SkillMatrixTable } from './components/SkillMatrixTable';
 import { RealtimeCharts } from './components/RealtimeCharts';
 import { CoverageRiskView } from './components/CoverageRiskView';
-import { ProjectFitView } from './components/ProjectFitView';
 import { TeamMembersView } from './components/TeamMembersView';
 import { MemberProfileModal } from './components/MemberProfileModal';
 import { ExcelImportModal } from './components/ExcelImportModal';
@@ -47,8 +43,6 @@ import { EditMemberModal } from './components/EditMemberModal';
 import { ManageDomainsModal } from './components/ManageDomainsModal';
 import { HeatmapConfigModal, DEFAULT_HEATMAP_CONFIG } from './components/HeatmapConfigModal';
 import { AuditLogDrawer } from './components/AuditLogDrawer';
-import { SkillRequestModal } from './components/SkillRequestModal';
-import { User } from './firebase';
 import { 
   syncAllSkillsToFirestore, 
   addAuditLogToFirestore, 
@@ -72,27 +66,13 @@ import { exportSkillsToCSV, exportSkillsToExcel } from './utils/exportUtils';
 import { CheckCircle2, RefreshCw, X, Sparkles } from 'lucide-react';
 
 export default function App() {
-  const [theme, setTheme] = useState<AppTheme>(() => {
-    try {
-      const saved = localStorage.getItem('skill_matrix_theme') as AppTheme;
-      if (saved === 'light' || saved === 'dark' || saved === 'blue') return saved;
-    } catch {
-      // fallback
-    }
-    return 'light';
-  });
-
-  const handleThemeChange = (newTheme: AppTheme) => {
-    setTheme(newTheme);
-    try {
-      localStorage.setItem('skill_matrix_theme', newTheme);
-    } catch {}
-    document.documentElement.setAttribute('data-theme', newTheme);
-  };
-
+  // Ensure default and permanent light theme mode
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
+    document.documentElement.setAttribute('data-theme', 'light');
+    try {
+      localStorage.removeItem('skill_matrix_theme');
+    } catch {}
+  }, []);
 
   const [skills, setSkills] = useState<SkillItem[]>(() => {
     try {
@@ -487,296 +467,27 @@ export default function App() {
     }
   };
 
-  // Skill & Training Requests state with localStorage persistence
-  const [skillRequests, setSkillRequests] = useState<SkillRequest[]>(() => {
-    try {
-      const saved = localStorage.getItem('skill_matrix_skill_requests');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          return parsed.filter(r => !['An', 'Bình', 'Cường', 'Dũng'].includes(r.requesterName) && !r.id.startsWith('req-'));
-        }
-      }
-    } catch {
-      // fallback
-    }
-    return INITIAL_SKILL_REQUESTS;
-  });
-  const [isSkillRequestModalOpen, setIsSkillRequestModalOpen] = useState<boolean>(false);
-
-  const pendingRequestsCount = useMemo(() => {
-    return skillRequests.filter(r => r.status === 'pending').length;
-  }, [skillRequests]);
-
-  const persistSkillRequests = (updated: SkillRequest[]) => {
-    setSkillRequests(updated);
-    try {
-      localStorage.setItem('skill_matrix_skill_requests', JSON.stringify(updated));
-    } catch {
-      // ignore
-    }
-  };
-
-  // 1. Submit New Skill or Training Request
-  const handleSubmitSkillRequest = (
-    newReqData: Omit<SkillRequest, 'id' | 'createdAt'>,
-    addToMatrixAsPending: boolean = true
-  ) => {
-    const reqId = `req-${Date.now()}`;
-    const newReq: SkillRequest = {
-      ...newReqData,
-      id: reqId,
-      createdAt: new Date().toISOString()
-    };
-
-    let newMatrixSkillId: number | undefined = undefined;
-
-    // If proposing a new skill and requested to show as pending in matrix
-    if (newReqData.requestType === 'new_skill' && addToMatrixAsPending) {
-      const nextId = skills.length > 0 ? Math.max(...skills.map(s => s.id)) + 1 : 1;
-      newMatrixSkillId = nextId;
-      newReq.matrixSkillId = nextId;
-
-      const initialRatings: Record<string, CompetencyLevel> = {};
-      members.forEach(m => {
-        if (m.name === newReqData.requesterName) {
-          initialRatings[m.name] = newReqData.targetLevel;
-        } else if (newReqData.interestedMembers.includes(m.name)) {
-          initialRatings[m.name] = 'L1';
-        } else {
-          initialRatings[m.name] = 'L0';
-        }
-      });
-
-      const pendingSkillItem: SkillItem = {
-        id: nextId,
-        domain: newReqData.domain,
-        skill: newReqData.title,
-        ratings: initialRatings,
-        owner: newReqData.requesterName,
-        backup: '',
-        sme: '',
-        notes: `[Chờ duyệt] ${newReqData.justification}`,
-        status: 'pending',
-        requestedBy: newReqData.requesterName,
-        requestId: reqId
-      };
-
-      const updatedSkills = [...skills, pendingSkillItem];
-      setSkills(updatedSkills);
-      persistSkillsToBackend(updatedSkills);
-    }
-
-    const updatedRequests = [newReq, ...skillRequests];
-    persistSkillRequests(updatedRequests);
-
-    addAuditLog({
-      memberName: newReqData.requesterName,
-      skillId: newMatrixSkillId || 0,
-      skillName: newReqData.title,
-      domain: newReqData.domain,
-      oldValue: '(Mới)',
-      newValue: 'Pending',
-      changeType: 'rating',
-      performedBy: newReqData.requesterName,
-      notes: `Gửi đề xuất ${newReqData.requestType === 'new_skill' ? 'kỹ năng mới' : 'đào tạo'}: "${newReqData.title}"`
-    });
-
-    setSyncToastMessage(
-      `Đã gửi thành công đề xuất "${newReqData.title}" (${newReqData.requestType === 'new_skill' ? 'Kỹ năng mới' : 'Yêu cầu đào tạo'})!`
-    );
-    setTimeout(() => setSyncToastMessage(null), 4500);
-  };
-
-  // 2. Approve Request & Activate in Matrix
-  const handleApproveSkillRequest = (requestId: string, reviewerNotes?: string) => {
-    const targetReq = skillRequests.find(r => r.id === requestId);
-    if (!targetReq) return;
-
-    const updatedRequests: SkillRequest[] = skillRequests.map(r => {
-      if (r.id !== requestId) return r;
-      return {
-        ...r,
-        status: 'approved' as const,
-        reviewedBy: 'Trưởng Phòng Hạ Tầng',
-        reviewNotes: reviewerNotes || 'Đã phê duyệt đưa vào ma trận chính thức',
-        reviewedAt: new Date().toISOString()
-      };
-    });
-    persistSkillRequests(updatedRequests);
-
-    // Update or activate skill in matrix
-    let activatedSkillId = targetReq.matrixSkillId;
-    let updatedSkills = skills.map(s => {
-      if (s.requestId === requestId || (targetReq.matrixSkillId && s.id === targetReq.matrixSkillId)) {
-        return {
-          ...s,
-          status: 'active' as const,
-          notes: s.notes?.replace('[Chờ duyệt]', '[Chính thức]') || s.notes
-        };
-      }
-      return s;
-    });
-
-    // If not in matrix yet, add it as active
-    const exists = updatedSkills.some(s => s.requestId === requestId || s.skill.toLowerCase() === targetReq.title.toLowerCase());
-    if (!exists && targetReq.requestType === 'new_skill') {
-      const nextId = updatedSkills.length > 0 ? Math.max(...updatedSkills.map(s => s.id)) + 1 : 1;
-      activatedSkillId = nextId;
-      const initialRatings: Record<string, CompetencyLevel> = {};
-      members.forEach(m => {
-        if (m.name === targetReq.requesterName) {
-          initialRatings[m.name] = targetReq.targetLevel;
-        } else if (targetReq.interestedMembers.includes(m.name)) {
-          initialRatings[m.name] = 'L1';
-        } else {
-          initialRatings[m.name] = 'L0';
-        }
-      });
-      const newActiveSkill: SkillItem = {
-        id: nextId,
-        domain: targetReq.domain,
-        skill: targetReq.title,
-        ratings: initialRatings,
-        owner: targetReq.requesterName,
-        backup: '',
-        sme: targetReq.requesterName,
-        notes: `[Chính thức] ${targetReq.justification}`,
-        status: 'active',
-        requestedBy: targetReq.requesterName,
-        requestId
-      };
-      updatedSkills.push(newActiveSkill);
-    }
-
-    setSkills(updatedSkills);
-    persistSkillsToBackend(updatedSkills);
-
-    addAuditLog({
-      memberName: targetReq.requesterName,
-      skillId: activatedSkillId || 0,
-      skillName: targetReq.title,
-      domain: targetReq.domain,
-      oldValue: 'Pending',
-      newValue: 'Approved / Active',
-      changeType: 'rating',
-      performedBy: 'Trưởng Phòng Hạ Tầng',
-      notes: `Phê duyệt chính thức kỹ năng "${targetReq.title}" vào Ma Trận`
-    });
-
-    setSyncToastMessage(`Đã phê duyệt đề xuất "${targetReq.title}" và kích hoạt trong Ma Trận!`);
-    setTimeout(() => setSyncToastMessage(null), 4500);
-  };
-
-  // 3. Reject Request
-  const handleRejectSkillRequest = (requestId: string, reviewerNotes?: string) => {
-    const targetReq = skillRequests.find(r => r.id === requestId);
-    if (!targetReq) return;
-
-    const updatedRequests: SkillRequest[] = skillRequests.map(r => {
-      if (r.id !== requestId) return r;
-      return {
-        ...r,
-        status: 'rejected' as const,
-        reviewedBy: 'Trưởng Phòng Hạ Tầng',
-        reviewNotes: reviewerNotes || 'Chưa phù hợp với định hướng công nghệ hiện tại',
-        reviewedAt: new Date().toISOString()
-      };
-    });
-    persistSkillRequests(updatedRequests);
-
-    // Remove pending skill placeholder from matrix if present
-    const updatedSkills = skills.filter(s => s.requestId !== requestId && (!targetReq.matrixSkillId || s.id !== targetReq.matrixSkillId || s.status !== 'pending'));
-    setSkills(updatedSkills);
-    persistSkillsToBackend(updatedSkills);
-
-    addAuditLog({
-      memberName: targetReq.requesterName,
-      skillId: targetReq.matrixSkillId || 0,
-      skillName: targetReq.title,
-      domain: targetReq.domain,
-      oldValue: 'Pending',
-      newValue: 'Rejected',
-      changeType: 'rating',
-      performedBy: 'Trưởng Phòng Hạ Tầng',
-      notes: `Từ chối đề xuất "${targetReq.title}": ${reviewerNotes || 'Chưa phù hợp'}`
-    });
-
-    setSyncToastMessage(`Đã từ chối đề xuất "${targetReq.title}".`);
-    setTimeout(() => setSyncToastMessage(null), 3500);
-  };
-
-  // 4. Set Training in Progress
-  const handleSetInTraining = (requestId: string) => {
-    const targetReq = skillRequests.find(r => r.id === requestId);
-    if (!targetReq) return;
-
-    const updatedRequests: SkillRequest[] = skillRequests.map(r => {
-      if (r.id !== requestId) return r;
-      return {
-        ...r,
-        status: 'in_training' as const,
-        reviewedBy: 'Lead Kỹ Thuật',
-        reviewNotes: 'Đang triển khai buổi đào tạo / Lab Workshop',
-        reviewedAt: new Date().toISOString()
-      };
-    });
-    persistSkillRequests(updatedRequests);
-
-    addAuditLog({
-      memberName: targetReq.requesterName,
-      skillId: targetReq.matrixSkillId || 0,
-      skillName: targetReq.title,
-      domain: targetReq.domain,
-      oldValue: 'Pending',
-      newValue: 'In Training',
-      changeType: 'rating',
-      performedBy: 'Lead Kỹ Thuật',
-      notes: `Khởi động chương trình đào tạo cho chủ đề "${targetReq.title}"`
-    });
-
-    setSyncToastMessage(`Đã chuyển đề xuất "${targetReq.title}" sang trạng thái Đang Đào Tạo!`);
-    setTimeout(() => setSyncToastMessage(null), 3500);
-  };
-
-  // 5. Toggle Upvote / Interested
-  const handleToggleUpvoteSkillRequest = (requestId: string, memberName: string) => {
-    const updatedRequests = skillRequests.map(r => {
-      if (r.id !== requestId) return r;
-      const isInterested = r.interestedMembers.includes(memberName);
-      const newInterested = isInterested
-        ? r.interestedMembers.filter(m => m !== memberName)
-        : [...r.interestedMembers, memberName];
-      return { ...r, interestedMembers: newInterested };
-    });
-    persistSkillRequests(updatedRequests);
-  };
-
-  // 6. Quick Approve directly from table row
+  // Quick Approve directly from table row if any pending
   const handleQuickApprovePendingSkill = (skillId: number) => {
     const targetSkill = skills.find(s => s.id === skillId);
     if (!targetSkill) return;
 
-    if (targetSkill.requestId) {
-      handleApproveSkillRequest(targetSkill.requestId);
-    } else {
-      const updated = skills.map(s => s.id === skillId ? { ...s, status: 'active' as const } : s);
-      setSkills(updated);
-      persistSkillsToBackend(updated);
-      addAuditLog({
-        memberName: targetSkill.owner || 'Toàn nhóm',
-        skillId,
-        skillName: targetSkill.skill,
-        domain: targetSkill.domain,
-        oldValue: 'Pending',
-        newValue: 'Active',
-        changeType: 'rating',
-        performedBy: 'Quản lý',
-        notes: `Duyệt nhanh kỹ năng "${targetSkill.skill}" thành chính thức`
-      });
-      setSyncToastMessage(`Đã duyệt kỹ năng "${targetSkill.skill}" thành chính thức!`);
-      setTimeout(() => setSyncToastMessage(null), 3500);
-    }
+    const updated = skills.map(s => s.id === skillId ? { ...s, status: 'active' as const } : s);
+    setSkills(updated);
+    persistSkillsToBackend(updated);
+    addAuditLog({
+      memberName: targetSkill.owner || 'Toàn nhóm',
+      skillId,
+      skillName: targetSkill.skill,
+      domain: targetSkill.domain,
+      oldValue: 'Pending',
+      newValue: 'Active',
+      changeType: 'rating',
+      performedBy: 'Quản lý',
+      notes: `Duyệt nhanh kỹ năng "${targetSkill.skill}" thành chính thức`
+    });
+    setSyncToastMessage(`Đã duyệt kỹ năng "${targetSkill.skill}" thành chính thức!`);
+    setTimeout(() => setSyncToastMessage(null), 3500);
   };
 
   // Print & PDF Customization state
@@ -895,8 +606,6 @@ export default function App() {
       });
     }
   }, []);
-
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   // Fetch initial matrix: Load real SharePoint data from backend and sync to Supabase
   const fetchBackendData = useCallback(async () => {
@@ -1083,34 +792,6 @@ export default function App() {
         success: false,
         changed: false,
         error: err.message
-      };
-    } finally {
-      setIsSyncing(false);
-    }
-  };
-
-  // Push updated skills back to SharePoint Excel via Webhook / Flow / Direct Export
-  const handlePushToSharePoint = async (webhookUrl?: string): Promise<any> => {
-    setIsSyncing(true);
-    try {
-      const res = await fetch('/api/push-sharepoint', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ webhookUrl, skills })
-      });
-      const data = await res.json();
-      if (data.success) {
-        if (data.state) {
-          setSyncState(data.state);
-        }
-        setSyncToastMessage(data.message || 'Đã đóng gói và đồng bộ file Excel thành công!');
-        setTimeout(() => setSyncToastMessage(null), 6000);
-      }
-      return data;
-    } catch (err: any) {
-      return {
-        success: false,
-        message: `Lỗi kết nối: ${err.message}`
       };
     } finally {
       setIsSyncing(false);
@@ -1308,8 +989,8 @@ export default function App() {
         if (!hasMember) return false;
       }
 
-      // 4. Project Filter
-      if (filter.selectedProject !== 'all') {
+      // 4. Project Filter (if any)
+      if (filter.selectedProject && filter.selectedProject !== 'all') {
         const proj = projects.find(p => p.id === filter.selectedProject);
         if (proj && proj.requiredSkills) {
           const isReq = proj.requiredSkills.some(
@@ -1668,14 +1349,8 @@ export default function App() {
 
   return (
     <div 
-      data-theme={theme}
-      className={`min-h-screen flex flex-col font-sans transition-colors duration-150 ${
-        theme === 'light' 
-          ? 'bg-slate-50 text-slate-900' 
-          : theme === 'blue' 
-          ? 'bg-[#030a1a] text-[#f0f7ff]' 
-          : 'bg-[#0b0f19] text-[#f1f5f9]'
-      }`}
+      data-theme="light"
+      className="min-h-screen flex flex-col font-sans bg-slate-50 text-slate-900 transition-colors duration-150"
     >
       {/* Toast Notification Banner for Sync & Skill Add Events */}
       {syncToastMessage && (
@@ -1712,11 +1387,6 @@ export default function App() {
         onOpenCompetencyModal={() => setIsCompetencyModalOpen(true)}
         onOpenAuditLog={() => setIsAuditLogOpen(true)}
         auditLogCount={auditLogs.length}
-        onOpenSkillRequests={() => setIsSkillRequestModalOpen(true)}
-        pendingRequestsCount={pendingRequestsCount}
-        currentTheme={theme}
-        onThemeChange={handleThemeChange}
-        onUserChanged={setCurrentUser}
       />
 
       {/* 2. Main Content Container */}
@@ -1736,7 +1406,6 @@ export default function App() {
               setFilter={setFilter}
               domains={currentDomains}
               members={members}
-              projects={projects}
               totalCount={skills.length}
               filteredCount={filteredSkills.length}
               skills={skills}
@@ -1768,8 +1437,6 @@ export default function App() {
               onBulkSetRole={handleBulkSetRole}
               onOpenAuditLog={() => setIsAuditLogOpen(true)}
               auditLogCount={auditLogs.length}
-              onOpenSkillRequests={() => setIsSkillRequestModalOpen(true)}
-              pendingRequestsCount={pendingRequestsCount}
               onApprovePendingSkill={handleQuickApprovePendingSkill}
             />
           </div>
@@ -1782,20 +1449,6 @@ export default function App() {
             members={members}
             syncState={syncState}
             onOpenPrintModal={handleOpenPrintModal}
-          />
-        )}
-
-        {/* Tab 3: Projects & Gap Analysis */}
-        {activeTab === 'projects' && (
-          <ProjectFitView
-            projects={projects}
-            skills={skills}
-            members={members}
-            onSelectProjectFilter={handleSelectProjectFilter}
-            onAddProject={handleAddProject}
-            onUpdateProject={handleUpdateProject}
-            onDeleteProject={handleDeleteProject}
-            onClearDemoProjects={handleClearDemoProjects}
           />
         )}
       </main>
@@ -1865,7 +1518,7 @@ export default function App() {
         isSyncing={isSyncing}
       />
 
-      {/* Two-Way SharePoint / OneDrive Sync Modal */}
+      {/* SharePoint / OneDrive Sync Modal */}
       <TwoWaySharePointSyncModal
         isOpen={isManualSyncModalOpen}
         onClose={() => setIsManualSyncModalOpen(false)}
@@ -1874,7 +1527,6 @@ export default function App() {
         members={members}
         onPullFromSharePoint={handleManualSyncOnline}
         onPullFromFile={handleManualSyncFile}
-        onPushToSharePoint={handlePushToSharePoint}
         onUpdateConfig={handleUpdateConfig}
         isSyncing={isSyncing}
       />
@@ -1951,21 +1603,6 @@ export default function App() {
         onRevertChange={handleRevertAuditChange}
         onNavigateToSkill={handleNavigateToSkillFromAudit}
         onClearLogs={handleClearAuditLogs}
-      />
-
-      {/* Skill & Training Requests Modal */}
-      <SkillRequestModal
-        isOpen={isSkillRequestModalOpen}
-        onClose={() => setIsSkillRequestModalOpen(false)}
-        requests={skillRequests}
-        domains={currentDomains}
-        members={members}
-        onSubmitRequest={handleSubmitSkillRequest}
-        onApproveRequest={handleApproveSkillRequest}
-        onRejectRequest={handleRejectSkillRequest}
-        onSetInTraining={handleSetInTraining}
-        onToggleUpvote={handleToggleUpvoteSkillRequest}
-        onDeleteRequest={id => persistSkillRequests(skillRequests.filter(r => r.id !== id))}
       />
 
       {/* 5. Print-Only Report Container for PDF export */}

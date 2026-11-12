@@ -245,23 +245,11 @@ app.post('/api/matrix', async (req: Request, res: Response) => {
   try {
     fs.writeFileSync(SKILLS_FILE, JSON.stringify(skills, null, 2), 'utf-8');
     
-    // Only trigger auto-push to SharePoint if explicitly enabled by user (default is manual)
-    const state = getSyncState();
-    let pushResult: any = null;
-
-    if (state.autoPushOnEdit === true) {
-      try {
-        pushResult = await executePushToSharePoint(skills);
-      } catch (pe: any) {
-        console.error('Error auto-pushing to SharePoint:', pe.message);
-      }
-    } else {
-      try {
-        const excelBuffer = generateExcelBuffer(skills);
-        fs.writeFileSync(EXCEL_OUTPUT_FILE, excelBuffer);
-      } catch (e: any) {
-        console.error('Error generating Excel file on disk:', e.message);
-      }
+    try {
+      const excelBuffer = generateExcelBuffer(skills);
+      fs.writeFileSync(EXCEL_OUTPUT_FILE, excelBuffer);
+    } catch (e: any) {
+      console.error('Error generating Excel file on disk:', e.message);
     }
 
     const updatedState = getSyncState();
@@ -271,9 +259,8 @@ app.post('/api/matrix', async (req: Request, res: Response) => {
     res.json({ 
       success: true, 
       count: skills.length,
-      autoPushed: Boolean(pushResult?.status === 'webhook_success'),
-      pushStatus: pushResult?.status || 'saved_locally',
-      pushMessage: pushResult?.message || 'Đã lưu và cập nhật file Excel ma trận kỹ năng.',
+      pushStatus: 'saved_locally',
+      pushMessage: 'Đã lưu và cập nhật dữ liệu ma trận kỹ năng.',
       state: updatedState
     });
   } catch (err: any) {
@@ -389,30 +376,6 @@ app.post('/api/manual-sync', async (req: Request, res: Response) => {
       return res.json(fallbackResult);
     }
     res.status(500).json({ success: false, error: err.message || 'Lỗi xử lý đồng bộ' });
-  }
-});
-
-// 4c. POST /api/push-sharepoint (Push Web Data back to SharePoint Excel via Webhook / Flow / Direct Export)
-app.post('/api/push-sharepoint', async (req: Request, res: Response) => {
-  const { webhookUrl, skills: payloadSkills } = req.body || {};
-  try {
-    let skills = payloadSkills;
-    if (!skills || !Array.isArray(skills)) {
-      if (fs.existsSync(SKILLS_FILE)) {
-        skills = JSON.parse(fs.readFileSync(SKILLS_FILE, 'utf-8'));
-      } else {
-        skills = [];
-      }
-    }
-
-    const result = await executePushToSharePoint(skills, webhookUrl);
-    res.json({
-      ...result,
-      itemCount: skills.length,
-      downloadUrl: '/api/download-excel'
-    });
-  } catch (err: any) {
-    res.status(500).json({ success: false, error: err.message });
   }
 });
 

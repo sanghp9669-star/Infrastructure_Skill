@@ -201,8 +201,6 @@ interface SkillMatrixTableProps {
   onBulkSetRole?: (skillIds: number[], roleField: 'owner' | 'backup' | 'sme', memberName: string) => void;
   onOpenAuditLog?: () => void;
   auditLogCount?: number;
-  onOpenSkillRequests?: () => void;
-  pendingRequestsCount?: number;
   onApprovePendingSkill?: (skillId: number) => void;
 }
 
@@ -230,8 +228,6 @@ export const SkillMatrixTable: React.FC<SkillMatrixTableProps> = ({
   onBulkSetRole,
   onOpenAuditLog,
   auditLogCount,
-  onOpenSkillRequests,
-  pendingRequestsCount,
   onApprovePendingSkill
 }) => {
   const [activeCell, setActiveCell] = useState<{ skillId: number; memberName: string } | null>(null);

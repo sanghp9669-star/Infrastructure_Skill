@@ -63,8 +63,7 @@ interface TwoWaySharePointSyncModalProps {
   members: TeamMember[];
   onPullFromSharePoint: (url?: string) => Promise<SyncResult | null>;
   onPullFromFile: (fileBase64: string, filename: string) => Promise<SyncResult | null>;
-  onPushToSharePoint: (webhookUrl?: string) => Promise<SyncResult | null>;
-  onUpdateConfig: (config: { intervalMinutes?: number; enabled?: boolean; url?: string; webhookUrl?: string; autoPushOnEdit?: boolean }) => Promise<void>;
+  onUpdateConfig: (config: { intervalMinutes?: number; enabled?: boolean; url?: string }) => Promise<void>;
   isSyncing: boolean;
 }
 
@@ -76,11 +75,10 @@ export const TwoWaySharePointSyncModal: React.FC<TwoWaySharePointSyncModalProps>
   members,
   onPullFromSharePoint,
   onPullFromFile,
-  onPushToSharePoint,
   onUpdateConfig,
   isSyncing
 }) => {
-  const [activeTab, setActiveTab] = useState<'pull' | 'push' | 'supabase' | 'settings'>('push');
+  const [activeTab, setActiveTab] = useState<'pull' | 'supabase' | 'settings'>('pull');
 
   // Supabase Tab State
   const [supabaseLoading, setSupabaseLoading] = useState(false);
@@ -98,16 +96,9 @@ export const TwoWaySharePointSyncModal: React.FC<TwoWaySharePointSyncModalProps>
   const [pullResult, setPullResult] = useState<SyncResult | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Push Tab State
-  const [pushWebhookUrl, setPushWebhookUrl] = useState<string>((syncState as any)?.webhookUrl || '');
-  const [pushStep, setPushStep] = useState<number>(0);
-  const [pushResult, setPushResult] = useState<SyncResult | null>(null);
-  const [copiedFlowCode, setCopiedFlowCode] = useState(false);
-
   // Settings Tab State
   const [interval, setIntervalVal] = useState<number>(syncState?.intervalMinutes || 5);
   const [isEnabled, setIsEnabled] = useState<boolean>(syncState?.enabled ?? true);
-  const [autoPushOnEdit, setAutoPushOnEdit] = useState<boolean>((syncState as any)?.autoPushOnEdit ?? true);
   const [isSavingConfig, setIsSavingConfig] = useState(false);
   const [configSaveSuccess, setConfigSaveSuccess] = useState(false);
 
@@ -115,10 +106,8 @@ export const TwoWaySharePointSyncModal: React.FC<TwoWaySharePointSyncModalProps>
   React.useEffect(() => {
     if (isOpen) {
       if (syncState?.url) setPullUrl(syncState.url);
-      if ((syncState as any)?.webhookUrl) setPushWebhookUrl((syncState as any).webhookUrl);
       if (syncState?.intervalMinutes) setIntervalVal(syncState.intervalMinutes);
       if (syncState?.enabled !== undefined) setIsEnabled(syncState.enabled);
-      if ((syncState as any)?.autoPushOnEdit !== undefined) setAutoPushOnEdit((syncState as any).autoPushOnEdit);
     }
   }, [isOpen, syncState]);
 
@@ -158,29 +147,13 @@ export const TwoWaySharePointSyncModal: React.FC<TwoWaySharePointSyncModalProps>
     reader.readAsDataURL(pullFile);
   };
 
-  // Handle Push to SharePoint
-  const handleStartPush = async () => {
-    setPushResult(null);
-    setPushStep(1); // Packaging Excel
-
-    const timer1 = setTimeout(() => setPushStep(2), 600); // Sending
-
-    const result = await onPushToSharePoint(pushWebhookUrl.trim() || undefined);
-
-    clearTimeout(timer1);
-    setPushStep(3); // Done
-    setPushResult(result);
-  };
-
   // Save Settings
   const handleSaveSettings = async () => {
     setIsSavingConfig(true);
     await onUpdateConfig({
       url: pullUrl.trim(),
-      webhookUrl: pushWebhookUrl.trim(),
       intervalMinutes: Number(interval),
-      enabled: isEnabled,
-      autoPushOnEdit
+      enabled: isEnabled
     });
     setIsSavingConfig(false);
     setConfigSaveSuccess(true);
@@ -204,14 +177,14 @@ export const TwoWaySharePointSyncModal: React.FC<TwoWaySharePointSyncModalProps>
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="font-bold text-sm sm:text-base text-white">
-                  Trung Tâm Đồng Bộ 2 Chiều Microsoft SharePoint / OneDrive
+                  Trung Tâm Đồng Bộ Microsoft SharePoint & Supabase
                 </h3>
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-500/30 text-indigo-200 border border-indigo-400/30">
-                  Two-Way Sync Hub
+                  Sync Hub
                 </span>
               </div>
               <p className="text-[11px] text-slate-300">
-                Kéo dữ liệu từ SharePoint về Web & Đẩy dữ liệu cập nhật từ Web ngược lại file Excel
+                Kéo dữ liệu từ SharePoint về Web & Quản lý cơ sở dữ liệu Supabase
               </p>
             </div>
           </div>
@@ -242,19 +215,6 @@ export const TwoWaySharePointSyncModal: React.FC<TwoWaySharePointSyncModalProps>
 
           <button
             type="button"
-            onClick={() => setActiveTab('push')}
-            className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold rounded-t-xl transition-all border-t border-x ${
-              activeTab === 'push'
-                ? 'bg-white text-indigo-700 border-slate-200 -mb-px shadow-2xs font-extrabold'
-                : 'text-slate-600 hover:text-slate-900 border-transparent hover:bg-slate-100'
-            }`}
-          >
-            <ArrowUpFromLine className="w-4 h-4 text-emerald-600" />
-            <span>2. Đẩy Lên SharePoint (Web ➔ SharePoint)</span>
-          </button>
-
-          <button
-            type="button"
             onClick={() => setActiveTab('supabase')}
             className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold rounded-t-xl transition-all border-t border-x ${
               activeTab === 'supabase'
@@ -263,7 +223,7 @@ export const TwoWaySharePointSyncModal: React.FC<TwoWaySharePointSyncModalProps>
             }`}
           >
             <Database className="w-4 h-4 text-emerald-600" />
-            <span>3. Cơ Sở Dữ Liệu Supabase</span>
+            <span>2. Cơ Sở Dữ Liệu Supabase</span>
           </button>
 
           <button
@@ -276,7 +236,7 @@ export const TwoWaySharePointSyncModal: React.FC<TwoWaySharePointSyncModalProps>
             }`}
           >
             <Settings2 className="w-4 h-4 text-slate-500" />
-            <span>4. Tự Động Hóa & Lịch Sử (Settings)</span>
+            <span>3. Tự Động Hóa & Lịch Sử (Settings)</span>
           </button>
         </div>
 
@@ -467,139 +427,7 @@ export const TwoWaySharePointSyncModal: React.FC<TwoWaySharePointSyncModalProps>
             </div>
           )}
 
-          {/* ================= TAB 2: PUSH (Web -> SharePoint) ================= */}
-          {activeTab === 'push' && (
-            <div className="space-y-5">
-              {/* Overview banner */}
-              <div className="p-4 bg-emerald-50/60 rounded-xl border border-emerald-100 flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5">
-                  <ArrowUpFromLine className="w-4 h-4" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900 text-sm">
-                    Đẩy & Ghi Đè Dữ Liệu Ngược Lại SharePoint Excel
-                  </h4>
-                  <p className="text-slate-600 text-xs mt-0.5 leading-relaxed">
-                    Tất cả các thay đổi vừa chỉnh sửa trên Web (đánh giá L0–L2, phân công vai trò, thêm kỹ năng mới) sẽ được đóng gói chuẩn cấu trúc Excel và gửi trực tiếp lên SharePoint hoặc xuất file tải về.
-                  </p>
-                </div>
-              </div>
-
-              {/* Option A: Push via Power Automate Webhook */}
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-[10px]">
-                      A
-                    </span>
-                    <h5 className="font-bold text-slate-800 text-xs">
-                      Tùy Chọn 1: Đẩy Tự Động Lên SharePoint Qua Webhook / Power Automate (Khuyên Dùng)
-                    </h5>
-                  </div>
-                  <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded border border-emerald-200">
-                    Trực Tiếp & Tức Thì
-                  </span>
-                </div>
-
-                <p className="text-[11px] text-slate-600">
-                  Nhập URL Webhook (Microsoft Power Automate HTTP Trigger / Logic Apps). Khi nhấp nút, hệ thống sẽ POST toàn bộ file Excel chuẩn hóa sang Cloud Flow để tự động ghi đè file trên SharePoint mà không cần làm thủ công.
-                </p>
-
-                <div className="flex items-center gap-2">
-                  <input
-                    type="url"
-                    placeholder="https://prod-xx.southeastasia.logic.azure.com:443/workflows/... hoặc webhook url"
-                    value={pushWebhookUrl}
-                    onChange={e => setPushWebhookUrl(e.target.value)}
-                    className="flex-1 px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-mono focus:outline-hidden focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
-                  />
-                  <button
-                    type="button"
-                    onClick={handleStartPush}
-                    disabled={pushStep === 1 || pushStep === 2}
-                    className="inline-flex items-center gap-2 px-5 py-2 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold rounded-lg transition-all shadow-xs shrink-0"
-                  >
-                    <ArrowUpFromLine className={`w-4 h-4 ${pushStep > 0 && pushStep < 3 ? 'animate-bounce' : ''}`} />
-                    <span>{pushStep > 0 && pushStep < 3 ? 'Đang Đẩy...' : 'Đẩy Lên SharePoint Ngay'}</span>
-                  </button>
-                </div>
-
-                {/* Push Result Box */}
-                {pushResult && (
-                  <div className={`p-3 rounded-lg border text-xs flex items-center justify-between ${
-                    pushResult.success ? 'bg-emerald-50 text-emerald-900 border-emerald-300' : 'bg-rose-50 text-rose-900 border-rose-300'
-                  }`}>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                      <span>{pushResult.message}</span>
-                    </div>
-                    <span className="font-mono text-[10px] text-slate-500">
-                      {new Date().toLocaleTimeString('vi-VN')}
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              {/* Option B: Direct Download Excel File */}
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-[10px]">
-                      B
-                    </span>
-                    <h5 className="font-bold text-slate-800 text-xs">
-                      Tùy Chọn 2: Tải File Excel Đã Đồng Bộ Về Máy (Lưu Vào Thư Mục Đồng Bộ SharePoint)
-                    </h5>
-                  </div>
-                  <span className="text-[10px] font-bold text-slate-700 bg-white px-2 py-0.5 rounded border border-slate-200">
-                    Thủ Công / File Lưu Trữ
-                  </span>
-                </div>
-
-                <p className="text-[11px] text-slate-600">
-                  Tải ngay file <code>Infrastructure_Skill_Matrix_Updated.xlsx</code> chứa toàn bộ {skills.length} kỹ năng và 3 Sheet chuẩn hóa để lưu đè vào thư mục OneDrive / SharePoint trên máy tính của bạn.
-                </p>
-
-                <div className="flex items-center justify-between bg-white p-3 rounded-lg border border-slate-200">
-                  <div className="flex items-center gap-2.5">
-                    <FileSpreadsheet className="w-6 h-6 text-emerald-600" />
-                    <div>
-                      <span className="font-bold text-slate-900 block text-xs">
-                        Infrastructure_Skill_Matrix_15Domains_Updated.xlsx
-                      </span>
-                      <span className="text-[10px] text-slate-500">
-                        {skills.length} Kỹ Năng · {members.length} Kỹ Sư · 3 Sheet Chuẩn Hóa
-                      </span>
-                    </div>
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={handleDownloadDirectExcel}
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-bold rounded-lg shadow-xs transition-all"
-                  >
-                    <Download className="w-4 h-4" />
-                    <span>Tải File Excel Về Máy</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* Power Automate Flow 3-Step Setup Guide */}
-              <div className="p-4 rounded-xl bg-indigo-50/40 border border-indigo-200/80 space-y-2">
-                <div className="flex items-center gap-2 text-indigo-950 font-bold">
-                  <Zap className="w-4 h-4 text-indigo-600" />
-                  <span>Hướng dẫn nhanh thiết lập Microsoft Power Automate Flow (3 Bước):</span>
-                </div>
-                <ol className="list-decimal list-inside space-y-1.5 text-[11px] text-indigo-900 leading-relaxed pl-1">
-                  <li>Mở <strong>Power Automate</strong> ➔ Tạo <strong>Instant Cloud Flow</strong> ➔ Chọn trigger <code>When an HTTP request is received</code>.</li>
-                  <li>Thêm action <strong>SharePoint</strong>: <code>Update file</code> hoặc <code>Create file</code> ➔ Chọn Thư viện tài liệu & đường dẫn file Excel ma trận.</li>
-                  <li>Lưu Flow, sao chép <strong>HTTP POST URL</strong> dán vào ô Webhook ở trên. Hệ thống sẽ tự động đồng bộ mỗi khi bạn cập nhật!</li>
-                </ol>
-              </div>
-            </div>
-          )}
-
-          {/* ================= TAB 3: SUPABASE DATABASE ================= */}
+          {/* ================= TAB 2: SUPABASE DATABASE ================= */}
           {activeTab === 'supabase' && (
             <div className="space-y-5 animate-in fade-in duration-150">
               {/* Overview banner */}
@@ -926,32 +754,6 @@ export const TwoWaySharePointSyncModal: React.FC<TwoWaySharePointSyncModalProps>
                 </h4>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Instant Auto-Push on Edit Switch */}
-                  <div className="p-3 rounded-lg bg-white border border-slate-200 flex items-center justify-between sm:col-span-2">
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span className="font-bold text-slate-800 block text-xs">
-                          ⚡ Tự Động Cập Nhật Ngay Lập Tức Xuống File Excel SharePoint Khi Có Sửa Đổi
-                        </span>
-                        <span className="text-[10px] font-bold px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 border border-emerald-300">
-                          Bật Mặc Định
-                        </span>
-                      </div>
-                      <span className="text-[10px] text-slate-500 block mt-0.5">
-                        Mỗi khi bạn chỉnh sửa đánh giá L0–L2, phân công SME/Backup, thêm/xóa kỹ năng trên web, hệ thống sẽ tự động gửi và ghi đè ngay vào file Excel SharePoint.
-                      </span>
-                    </div>
-                    <label className="relative inline-flex items-center cursor-pointer ml-3 shrink-0">
-                      <input
-                        type="checkbox"
-                        checked={autoPushOnEdit}
-                        onChange={e => setAutoPushOnEdit(e.target.checked)}
-                        className="sr-only peer"
-                      />
-                      <div className="w-10 h-5 bg-slate-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600"></div>
-                    </label>
-                  </div>
-
                   {/* Enable Switch */}
                   <div className="p-3 rounded-lg bg-white border border-slate-200 flex items-center justify-between">
                     <div>

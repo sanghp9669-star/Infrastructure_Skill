@@ -1,13 +1,13 @@
 import React from 'react';
 import { CompetencyLevel, FilterOptions, Project, SkillItem, TeamMember } from '../types/skills';
-import { Search, X, RotateCcw, Filter, Briefcase, User, Layers, ShieldCheck, AlertTriangle } from 'lucide-react';
+import { Search, X, RotateCcw, Filter, User, Layers, AlertTriangle } from 'lucide-react';
 
 interface FilterBarProps {
   filter: FilterOptions;
   setFilter: React.Dispatch<React.SetStateAction<FilterOptions>>;
   domains: string[];
   members: TeamMember[];
-  projects: Project[];
+  projects?: Project[];
   totalCount: number;
   filteredCount: number;
   skills?: SkillItem[];
@@ -20,7 +20,6 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   setFilter,
   domains,
   members,
-  projects,
   totalCount,
   filteredCount,
   skills,
@@ -31,7 +30,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
     filter.searchQuery !== '' ||
     filter.selectedDomain !== 'all' ||
     filter.selectedMember !== 'all' ||
-    filter.selectedProject !== 'all' ||
+    (filter.selectedProject && filter.selectedProject !== 'all') ||
     filter.minLevel !== 'all' ||
     filter.roleStatus !== 'all';
 
@@ -43,7 +42,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
 
   return (
     <div className="bg-white rounded-xl p-4 border border-slate-200/90 shadow-2xs mb-6 no-print">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         {/* 1. Search Query */}
         <div className="relative">
           <label className="block text-xs font-semibold text-slate-700 mb-1">
@@ -116,26 +115,6 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             {members.map(m => (
               <option key={m.name} value={m.name}>
                 {m.name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* 4. Filter by Project */}
-        <div>
-          <label className="block text-xs font-semibold text-slate-700 mb-1 flex items-center gap-1">
-            <Briefcase className="w-3.5 h-3.5 text-slate-400" />
-            <span>Dự Án Áp Dụng</span>
-          </label>
-          <select
-            value={filter.selectedProject}
-            onChange={e => setFilter(prev => ({ ...prev, selectedProject: e.target.value }))}
-            className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-hidden focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-medium"
-          >
-            <option value="all">Tất cả Dự án (Hiện toàn bộ)</option>
-            {projects.map(p => (
-              <option key={p.id} value={p.id}>
-                [{p.code}] {p.name}
               </option>
             ))}
           </select>
